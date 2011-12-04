@@ -49,6 +49,7 @@ input{font-family:"Microsoft Yahei",Helvetica,Arial,Tahoma,sans-serif;font-size:
 #c0a{background:#ff7f7f;}
 #cx50{background:#808080;}
 #cx10{background:#1a1a1a;}
+#bg_deer{background-image:url(../colors/deer.png)}
 #font_select{margin-left:59px;font-family:"Microsoft Yahei",Helvetica,Arial,Tahoma,sans-serif;font-size:12px;}
 .color_picker{width:60px;margin-left:23px;}
 #opt_adv_ul{margin:6px 0 0 23px;}
@@ -93,19 +94,26 @@ input{font-family:"Microsoft Yahei",Helvetica,Arial,Tahoma,sans-serif;font-size:
     top:-15px;
 }
 
-#xmas-hat-holder {
+#xmas-hat-holder, #xmas-hat-holder2 {
     position:absolute;
     width:100px;
     height:100px;
+    top: 40px;
     cursor:pointer;
     vertical-align:middle;
     text-align:center;
 }
+#xmas-hat-holder2{
+    left:100px;
+}
 
-#xmas-hat-holder:hover {
+#xmas-hat-holder:hover #xmas-hat-holder2:hover {
     background:rgba(245, 245, 245, .5);
 }
 
-#xmas-hat-holder img {
+
+#xmas-hat-holder img, #xmas-hat-holder2 img {
     width:100%;
 }
+
+.ui-resizable-helper { border: 2px dotted #00F; }

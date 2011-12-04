@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # (r'^admin/', include(admin.site.urls)),
     (r'^/?$', home),
-    (r'^gen$',generate),
+    (r'^gen\b',generate),
     (r'^random$', generate_random),
     (r'^result$', downloader),
     (r'^hat$', hat),
