@@ -155,8 +155,6 @@ $(document).ready(function() {
                 maxWidth: 200,
                 minHeight: 10,
                 minWidth: 10,
-		alsoResize: "#xmas-hat-holder2",
-		helper: "ui-resizable-helper"
             }).draggable({
                 zIndex: 9999999,
 //                containment:"#avatar-holder",
@@ -450,7 +448,6 @@ $(document).ready(function() {
 		args.bg=bg;
 		$.get("/hat", args, function(data){
 		    //data==result
-		    alert(data);
 		    $("#pic_output").html(data);
 		    addImgToHistory(data);
 		    addXmasButton();
