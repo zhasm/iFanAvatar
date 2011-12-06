@@ -13,18 +13,19 @@
         <link rel="icon" href="site_media/favicon.ico" type="image/gif" />
 
 
-        <script type="text/javascript" src="site_media/scripts/jquery.js"></script>
-        <script type="text/javascript" src="site_media/scripts/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="site_media/scripts/jquery.js?ver={{ build|slice:':8'  }}"></script>
+        <script type="text/javascript" src="site_media/scripts/jquery-ui.min.js?ver={{ build|slice:':8'  }}"></script>
         <!-- color picker begins-->
         <link rel="stylesheet" href="site_media/colorpicker/css/colorpicker.css" type="text/css" />
         <link rel="stylesheet" media="screen" type="text/css" href="site_media/colorpicker/css/layout.css" />
-        <script type="text/javascript" src="site_media/colorpicker/js/colorpicker.js"></script>
-        <script type="text/javascript" src="site_media/colorpicker/js/eye.js"></script>
-        <script type="text/javascript" src="site_media/colorpicker/js/utils.js"></script>
-        <script type="text/javascript" src="site_media/colorpicker/js/layout.js?ver=1.0.2"></script>
+        <script type="text/javascript" src="site_media/colorpicker/js/colorpicker.js?ver={{ build|slice:':8'  }}"></script>
+        <script type="text/javascript" src="site_media/colorpicker/js/eye.js?ver={{ build|slice:':8'  }}"></script>
+        <script type="text/javascript" src="site_media/colorpicker/js/utils.js?ver={{ build|slice:':8'  }}"></script>
+        <script type="text/javascript" src="site_media/colorpicker/js/layout.js?ver={{ build|slice:':8'  }}"></script>
         <!-- color picker ends-->
 
-        <script type="text/javascript" src="site_media/scripts/main.js"></script>
+        <script type="text/javascript" src="site_media/scripts/main.js?ver={{ build|slice:':8'  }}"></script>
+        <script type="text/javascript" src="site_media/scripts/ga.js?ver={{ build|slice:':8'  }}"></script>
 
     </head>
 
@@ -163,7 +164,7 @@
                     <option value='hat4.png'>hat 4</option>
                 </select>
             </div>
-	    
+
             <div id="xmas-off"> </div>
             <div id="xmas-optins">
                 <input type="hidden" name="xmas-hat-angel"/>
@@ -182,9 +183,6 @@
             </div>
 			<div><button id="add_hat">生成</button></div>
         </div>
-
-
-        <!-- Google Analytics -->
 
     </body>
 

@@ -50,7 +50,7 @@ def delete_pic(remain=100):
             os.unlink(x)
 
 def fontFile(font):
-    return findPath("font/%s" % font)
+    return findPath("media/font/%s" % font)
 
 def fontPosition(pFont):
     '''specify the position and size for each font'''
