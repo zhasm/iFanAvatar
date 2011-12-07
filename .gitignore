@@ -3,3 +3,4 @@
 font*
 media/result/*.png
 !media/result/3277306057496451aa5b7cbc04a250d5.png
+local_settings.py*

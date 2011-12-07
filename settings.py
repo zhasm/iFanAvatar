@@ -2,6 +2,7 @@
 
 import os
 
+REMAIN_PICS = 100
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -100,3 +101,10 @@ INSTALLED_APPS = (
 
 #rex added
 ADMIN_MEDIA_PREFIX = '/media/'
+
+
+try:
+    from  local_settings import *
+except ImportError:
+    pass
+
