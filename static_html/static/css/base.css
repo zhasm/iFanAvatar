@@ -1,0 +1,252 @@
+figure {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+::selection {
+    background-color: #0AB;
+    color: white;
+    text-shadow: none;
+}
+
+::-moz-selection {
+    background-color: #0AB;
+    color: white;
+    text-shadow: none;
+}
+
+body {
+    background: transparent url(../img/bg.png) repeat top left;
+}
+
+.flake {
+    width: 385px;
+    height: 340px;
+    background: transparent url(../img/world.png) no-repeat 0 -470px;
+   position: fixed; 
+   top: 0;
+   left: 0;
+   margin: 0;
+   padding: 0;
+   z-index: -1;
+}
+
+.header_wrapper {
+    width: 850px;
+    margin: auto;
+}
+
+.global-header {
+    width: 638px;
+    height: 94px;
+    background: transparent url(../img/world.png) no-repeat 0 0;
+    color: #233;
+    text-shadow: 0 -1px 1px #EFF;
+    font-size: 48px;
+    cursor: pointer;
+    text-indent: -9999px;
+
+}
+
+.global-header:hover {
+    background: transparent url(../img/world.png) no-repeat 0 -94px;
+}
+
+.wrapper {
+    position: relative;
+    height: 470px;
+    background-color: transparent;
+    behavior: url(static/js/PIE.htc);
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: #F8F8F8;
+    margin: 30px auto;
+    text-align: center;
+    width: 830px;
+    border: 1px solid #AAA;
+    overflow: hidden;
+    box-shadow: 0 0 1px #222;
+}
+
+.inner_wrapper {
+    position: relative;
+    background-color: white;
+    width: 830px;
+    margin: auto;
+    border-radius: 5px;
+    height: 100%;
+    /*overflow: hidden;*/
+}
+
+.big_input {
+    font-size: 142px;
+    padding: 6px;
+    height: 188px;
+    width: 188px;
+    color: white;
+    text-align: center;
+    outline: none;
+    border: none;
+    background-color: #DDD;
+    box-shadow: 0 0 4px #222 inset;
+    border: 1px thin #222;
+}
+
+.hinter_wrapper {
+    position: relative;
+}
+
+.hinter_desc {
+    width: 76px;
+    height: 44px;
+    position: absolute;
+    left: 367px;
+    top: -8px;
+    background: transparent url(../img/world.png) no-repeat 0 -289px;
+}
+
+.hinter, .current_hinter {
+    display: inline-block;
+    background-color: #DDD;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    text-indent: -9999px;
+    border-top: 2px solid #555;
+    border-right: 1px solid #222;
+    border-bottom: 1px solid #444;
+    border-left: 2px solid black;
+    behavior: url(static/js/PIE.htc);
+    position: relative;
+    margin: 3px;
+    vertical-align: top;
+    line-height: 12px;
+}
+
+.current_hinter {
+    background-color: skyblue;
+    border: 1px solid black;
+    height: 11px;
+    width: 11px;
+}
+
+.steps_wrapper {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 380px;
+    width: 3320px;
+}
+
+.steps {
+    float: left;
+    position: relative;
+    width: 830px;
+    height: 380px;
+}
+
+.active {
+    visibility: visible;
+}
+
+
+.globaltips {
+    text-align: center;
+    margin: 40px auto 50px;
+    background-image: url(../img/world.png);
+    text-indent: -9999px;
+    height: 20px;
+}
+
+.tip1 {
+    width: 236px;
+    background-position: 0 -188px;
+}
+
+.tip2 {/* TODO */
+    width: 99px;
+    background-position: 0 -208px;
+}
+
+.tip3 {
+    width: 99px;
+    background-position: 0 -228px;
+}
+
+.tip4 {
+    width: 79px;
+    background-position: 0 -268px;
+}
+
+.global-nav div {
+    position: relative;
+    z-index: 2;
+    background-image: url(../img/world.png);
+    width: 24px;
+    text-indent: -9999px;
+    height: 34px;
+    top: 220px;
+    cursor: pointer;
+}
+
+.gn-right {
+    background-position: 0 -397px;
+    float: right;
+    margin-right: 20px;
+}
+
+.gn-right:hover {
+    background-position: -24px -397px;
+}
+
+.gn-left {
+    background-position: -48px -397px;
+    float: left;
+    margin-left: 10px;
+}
+
+.gn-left:hover {
+    background-position: -72px -397px;
+}
+
+.gn-hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.theme_wrapper {
+    width: 600px;
+    text-align: center;
+    margin: auto;
+}
+
+.theme {
+    float: left;
+    position: relative;
+    width: 150px;
+    height: 170px;
+}
+
+.theme_preview {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto;
+    background-image: url(../img/world.png);
+}
+
+.tp_deer {
+    background-position: -238px -188px;
+}
+
+.tp_aifan {
+    background-position: -338px -188px;
+}
+
+.tp_fanfou {
+    background-position: -438px -188px;
+}
+
+.tp_custom {
+    background-position: -538px -188px;
+}

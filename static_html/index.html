@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Fanfou Avatar</title>
+        <link rel="stylesheet" href="static/css/base.css" media="screen"/>
+        <!--[if lt IE 9]>
+        <script src="static/js/html5.js"></script>
+        <![endif]-->
+        <script src="static/js/jquery-1.7.1.min.js"></script>
+        <script src="static/js/jquery-ui-1.8.16.custom.min.js"></script>
+        <script src="static/js/bgpos.js"></script>
+        <script src="static/js/main.js"></script>
+    </head>
+    <body>
+        <div class="flake"></div>
+        <div class="header_wrapper">
+            <h1 class="global-header">饭否头像生成</h1>
+        </div>
+        <div class="wrapper">
+            <div class="inner_wrapper">
+                <div class="global-nav">
+                    <div id="turn-left" class="nav-handler gn-hide gn-left">left</div>
+                    <div id="turn-right" class="nav-handler gn-right">right</div>
+                </div>
+
+                <div id="stepsWrapper" class="steps_wrapper">
+
+                    <figure id="step1" class="active steps">
+                        <div class="globaltips tip1">请在下面图片框内输入文字</div> 
+                        <input type="text" maxlength="1" class="big_input" name="char" id="char"/>
+                    </figure>
+
+                    <figure id="step2" class="steps">
+                        <div class="globaltips tip2">请选择模板</div> 
+                        <div class="theme_wrapper">
+                            <div class="theme">
+                                <div class="theme_preview tp_deer"></div>
+                                <input type="radio" name="theme1" id="theme-deer"/>
+                                <label for="theme-deer">圣诞鹿角</label>
+                            </div>
+                            <div class="theme">
+                                <div class="theme_preview tp_aifan"></div>
+                                <input type="radio" name="theme2" id="theme-deer"/>
+                                <label for="theme-aifan">爱饭样式</label>
+                            </div>
+                            <div class="theme">
+                                <div class="theme_preview tp_fanfou"></div>
+                                <input type="radio" name="theme3" id="theme-deer"/>
+                                <label for="theme-fanfou">饭否样式</label>
+                            </div>
+                            <div class="theme">
+                                <div class="theme_preview tp_custom"></div>
+                                <input type="radio" name="theme4" id="theme-deer"/>
+                                <label for="theme-custom">自定义</label>
+                            </div>
+                        </div>
+                    </figure>
+
+                    <figure id="step3" class="steps">
+                        <div class="globaltips tip3">自定义设置</div> 
+                        <div class="option_wrapper">
+                        </div>
+                    </figure>
+
+                    <figure id="step4" class="steps">
+                        <div class="globaltips tip4">完成啦</div> 
+                    </figure>
+                </div>
+
+                <div class="hinter_wrapper">            
+                    <div class="hinter_desc"></div>
+                   <span id="hinter1" class="hinter current_hinter">1</span>
+                   <span id="hinter2" class="hinter">2</span>       
+                   <span id="hinter3" class="hinter">3</span>       
+                   <span id="hinter4" class="hinter">4</span>       
+                </div>                                  
+            </div>
+        </div>
+    </body>
+</html>
