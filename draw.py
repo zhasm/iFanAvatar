@@ -16,6 +16,7 @@ from hashlib import md5
 from django.template.loader import get_template
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
+from settings import REMAIN_PICS
 
 #necessary to force chinese encoding(utf8)
 default_encoding = 'utf-8'
@@ -29,7 +30,7 @@ def findPath(path):
 
     return os.path.join(os.path.dirname(__file__), path)
 
-def delete_pic(remain=100):
+def delete_pic(remain=REMAIN_PICS):
     '''delete old pics so as to reduce the disk usage'''
 
     p=findPath("media/result/*.png")
