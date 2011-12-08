@@ -24,12 +24,12 @@ body {
     width: 385px;
     height: 340px;
     background: transparent url(../img/world.png) no-repeat 0 -470px;
-   position: fixed; 
-   top: 0;
-   left: 0;
-   margin: 0;
-   padding: 0;
-   z-index: -1;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    z-index: -1;
 }
 
 .header_wrapper {
@@ -76,7 +76,6 @@ body {
     margin: auto;
     border-radius: 5px;
     height: 100%;
-    /*overflow: hidden;*/
 }
 
 .big_input {
@@ -153,7 +152,7 @@ body {
 
 .globaltips {
     text-align: center;
-    margin: 40px auto 50px;
+    margin: 0 auto 50px;
     background-image: url(../img/world.png);
     text-indent: -9999px;
     height: 20px;
@@ -170,6 +169,7 @@ body {
 }
 
 .tip3 {
+    margin-bottom: 10px;
     width: 99px;
     background-position: 0 -228px;
 }
@@ -249,4 +249,65 @@ body {
 
 .tp_custom {
     background-position: -538px -188px;
+}
+
+.option_window {
+    padding-left: 90px;
+}
+
+.options_desc {
+    float: left;
+    line-height: 100%;
+    vertical-align: middle;
+    width: 80px;
+    margin-left: -20px;
+}
+
+.options_desc:after {
+    content: '.';
+    display: block;
+    visibility: hidden;
+    clear: both;
+    font-size: 0;
+    line-height: 0;
+}
+
+.font_list {
+    list-style: none;
+    list-style-type: none;
+    width: 600px;
+    position: relative;
+    left: 80px;
+    padding: 0;
+    margin; 0;
+}
+
+
+.font_list li {
+    display: inline-block;
+    font-size: 12px;
+}
+
+.font_preview {
+    background: #222 url(../img/world.png) no-repeat 0 -333px;
+    height: 33px;
+    width: 33px;
+    margin: auto;
+}
+
+
+.deer_trigger_button {
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    text-indent: -9999999px;
+    background: transparent url(../img/world.png) no-repeat 0 -368px;
+    width: 94px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.deer_trigger_button:active { 
+    background: transparent url(../img/world.png) no-repeat -94px -368px;
 }
