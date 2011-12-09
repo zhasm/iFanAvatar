@@ -3,6 +3,7 @@ from django.conf.urls.defaults import *
 from views import home, generate, generate_random, hat
 import os.path
 from downloader import downloader
+from app.views import route
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -24,6 +25,9 @@ urlpatterns = patterns('',
     (r'^random$', generate_random),
     (r'^result$', downloader),
     (r'^hat$', hat),
+    (r'^auth/', include('fanfouapi.urls')),
+    url(r'^upload/', route, name='route'),
+    url(r'^at/', include('app.urls')),
     (r'^site_media/(?P<path>.*/?)$', 'django.views.static.serve',
             {'document_root': STATIC_DOC_ROOT}),
 )

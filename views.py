@@ -8,8 +8,9 @@ from django.http import HttpResponse
 from django.template.loader import get_template
 from django.template import Template, Context
 from django.shortcuts import render_to_response
-from fontdict import fontdict
-from draw import my_draw 
+import fontdict
+
+from draw import my_draw
 from hat import draw_hat
 from misc import getVersionInfor
 
@@ -17,7 +18,7 @@ from misc import getVersionInfor
 def fontcss():
     '''generate css for fonts; '''
     format='''
-/****           %s           ****/ 
+/****           %s           ****/
 @font-face {
   font-family: "%s";
   src: url(/site_media/font/%s);
@@ -28,18 +29,21 @@ def fontcss():
     return css
 #    response = HttpResponse(mimetype='text/plain; charset=utf-8')
 #    response.write(css)
-#    return response 
+#    return response
 
 def home(request):
     '''index view'''
-    
+    from fontdict import fontdict
     version,build = getVersionInfor()
     t = get_template('index.html')
-    
-    html = t.render(Context({'fontdict':fontdict,
-#        'fontcss': fontcss(),
-        "version":  version,
-        "build":    build}))
+
+    button_text=''
+    if request.user.is_authenticated():
+        button_text = u"上传头像"
+    else:
+        button_text=u"请登录"
+
+    html = t.render(Context(locals()))
     return HttpResponse(html)
 
 def generate(request):
@@ -53,10 +57,10 @@ def generate(request):
     shadowColor=request.GET.get('shadowColor', '')
 
     #boolean args
-    border=eval(request.GET.get('border', '')) 
-    shadow=eval(request.GET.get('shadow', '')) 
-    highlight=eval(request.GET.get('highlight', '')) 
-    
+    border=eval(request.GET.get('border', ''))
+    shadow=eval(request.GET.get('shadow', ''))
+    highlight=eval(request.GET.get('highlight', ''))
+
     return my_draw(request,
             bg=bg,
             text=text,
@@ -66,8 +70,8 @@ def generate(request):
             border=border,
             shadow=shadow,
             highlight=highlight)
-    
-    
+
+
 def generate_random(request):
     bgPath = os.getcwd() + "/media/colors/"
     fontPath = os.getcwd() + "/media/font"
@@ -87,7 +91,7 @@ def generate_random(request):
     return my_draw(request, bg, text, font, textColor, shadowColor, border, shadow, highlight)
 
 def hat(request):
-    
+
     bg = request.GET.get('bg', '')  #can be changed to POST
     hat=request.GET.get('hat', '')
     angle=int(float(request.GET.get('angle', '')))
@@ -95,5 +99,5 @@ def hat(request):
     offsetLeft=int(float(request.GET.get('offsetLeft', '')))
     hatHeight=int(float(request.GET.get('hatHeight', '')))
     hatWidth=int(float(request.GET.get('hatWidth', '')))
-    
-    return draw_hat(bg, hat, angle, offsetLeft, offsetTop, hatWidth, hatHeight)
+
+    return draw_hat(request, bg, hat, angle, offsetLeft, offsetTop, hatWidth, hatHeight)

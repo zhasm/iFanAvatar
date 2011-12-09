@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
     String.prototype.s= function (o) {
         return this.replace(/{([^{}]*)}/g,
             function (a, b) {
@@ -392,7 +393,7 @@ $(document).ready(function() {
         //HAT: rotation angle, size, offset of the
 
         //site_media/result/bc98ff0348403f8098a3f7207c29f94f.png
-	
+
         var bg=$("#avatar-img").attr("src");
         if (bg.length < 36)   //for valid result only
         {
@@ -428,7 +429,7 @@ $(document).ready(function() {
     }
     $("#add_hat").click(function(){
         $("#pic_output").html("<img id='loading-icon' src='/site_media/images/loading.gif' />");
-	
+
 	var mode=$("#preset").val();
 	if (mode != 'deer'){
             $.get("/hat", getHatArgs(), function(data){
@@ -443,7 +444,7 @@ $(document).ready(function() {
 		var bg=data;
 		var myRegexp = /src=\"([^\"]+)\"/;
 		var match = myRegexp.exec(bg);
-		bg=match[1]; 
+		bg=match[1];
 		var args=getHatArgs(1);
 		args.bg=bg;
 		$.get("/hat", args, function(data){
@@ -451,20 +452,32 @@ $(document).ready(function() {
 		    $("#pic_output").html(data);
 		    addImgToHistory(data);
 		    addXmasButton();
-		});	
+		});
 	    });
-	 
+
 	}
-	
+
     });
     //hat selection
     $("#x_hat").change(function(){
         var img=$(this).val();
-	
+
         img="/site_media/images/"+img;
         $("#xmas-hat").attr("src",img);
 
     });
+
+    //upload function
+    $("#btn_upload").click(function(){
+	var img=$("#pic_output > a > img").attr('src');
+	if (img){
+	    var url='/upload';
+            window.location.href=url;	    
+	} //img
+	else{
+	    alert("请先点击“生成头像”按钮!");
+	}
+     });
 
 });//document ready ends
 

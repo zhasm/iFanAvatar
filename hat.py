@@ -15,7 +15,7 @@ from django.http import HttpResponse
 from draw import findPath
 from hashlib import md5
 
-def draw_hat(bg, hat, angle, offsetLeft, offsetTop, hatWidth, hatHeight):
+def draw_hat(request, bg, hat, angle, offsetLeft, offsetTop, hatWidth, hatHeight):
 
     filename=md5("".join([str(x) for x in [bg, hat, angle, offsetLeft, offsetTop, hatWidth, hatHeight]])).hexdigest()+".png"
     filename=findPath('media/result/')+filename
@@ -50,4 +50,5 @@ def draw_hat(bg, hat, angle, offsetLeft, offsetTop, hatWidth, hatHeight):
 
     url="""/site_%s""" % filename
     html="""<a href="/result?url=%s"><img src="%s"></a>""" % (url, url)
+    request.session['avatar_to_upload'] = url
     return HttpResponse(html)

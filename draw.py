@@ -51,7 +51,9 @@ def delete_pic(remain=REMAIN_PICS):
             os.unlink(x)
 
 def fontFile(font):
+    
     return findPath("media/font/%s" % font)
+
 
 def fontPosition(pFont):
     '''specify the position and size for each font'''
@@ -100,7 +102,9 @@ def my_draw(request,bg, text, font, textColor, shadowColor, border, shadow, high
     pure=md5(text+bg+font+textColor+shadowColor+str(border)+str(shadow)+str(highlight)).hexdigest()+".png"
 
     filename=findPath('media/result/')+pure
+
     pFont=fontFile(font)
+    
     (textPosition, fontSize)=fontPosition(pFont)
 
     #generate new pic only when not existing
@@ -173,5 +177,6 @@ def my_draw(request,bg, text, font, textColor, shadowColor, border, shadow, high
 
     url="""./site_media/result/%s""" % pure
     html="""<a href="/result?url=%s"><img src="%s"></a>""" % (url, url)
+    request.session['avatar_to_upload'] = url
     return HttpResponse(html)
 
