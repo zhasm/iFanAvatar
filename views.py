@@ -46,6 +46,17 @@ def home(request):
     html = t.render(Context(locals()))
     return HttpResponse(html)
 
+def home2(request):
+    """new home by nos.
+    
+    Arguments:
+    - `request`:
+    """
+    template = get_template('index2.html')
+
+    html = template.render(Context(locals()))
+    return HttpResponse(html)
+
 def generate(request):
 
     bg = request.GET.get('bg', '')  #can be changed to POST

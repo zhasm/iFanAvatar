@@ -5,6 +5,8 @@ import os.path
 from downloader import downloader
 from app.views import route
 
+import views
+
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
@@ -21,13 +23,18 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # (r'^admin/', include(admin.site.urls)),
     (r'^/?$', home),
-    (r'^gen\b',generate),
+    (r'^home2/?$', views.home2),
+    (r'^gen\b', generate),
     (r'^random$', generate_random),
     (r'^result$', downloader),
     (r'^hat$', hat),
     (r'^auth/', include('fanfouapi.urls')),
     url(r'^upload/', route, name='route'),
     url(r'^at/', include('app.urls')),
+    (r'^static/(?P<path>.*)$',
+     'django.views.static.serve',
+     {'document_root': 'static'}),
+
     (r'^site_media/(?P<path>.*/?)$', 'django.views.static.serve',
-            {'document_root': STATIC_DOC_ROOT}),
+     {'document_root': STATIC_DOC_ROOT}),
 )
