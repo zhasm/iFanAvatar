@@ -1,21 +1,3 @@
-figure {
-    display: block;
-    margin: 0;
-    padding: 0;
-}
-
-::selection {
-    background-color: #0AB;
-    color: white;
-    text-shadow: none;
-}
-
-::-moz-selection {
-    background-color: #0AB;
-    color: white;
-    text-shadow: none;
-}
-
 body {
     background: transparent url(../img/bg.png) repeat top left;
 }
@@ -24,12 +6,17 @@ body {
     width: 385px;
     height: 340px;
     background: transparent url(../img/world.png) no-repeat 0 -470px;
-    position: fixed; 
+    position: absolute; 
     top: 0;
     left: 0;
     margin: 0;
     padding: 0;
     z-index: -1;
+}
+
+body > div.flake
+{
+    position: fixed;
 }
 
 .header_wrapper {
@@ -57,7 +44,6 @@ body {
     position: relative;
     height: 470px;
     background-color: transparent;
-    behavior: url(static/js/PIE.htc);
     border-radius: 5px;
     padding: 10px;
     box-shadow: #F8F8F8;
@@ -92,62 +78,17 @@ body {
     border: 1px thin #222;
 }
 
-.hinter_wrapper {
-    position: relative;
-}
+/*.steps_wrapper {*/
+/*position: relative;*/
+/*margin: 0;*/
+/*padding: 0;*/
+/*height: 380px;*/
+/*width: 3320px;*/
+/*}*/
 
-.hinter_desc {
-    width: 76px;
-    height: 44px;
-    position: absolute;
-    left: 367px;
-    top: -8px;
-    background: transparent url(../img/world.png) no-repeat 0 -289px;
-}
-
-.hinter, .current_hinter {
-    display: inline-block;
-    background-color: #DDD;
-    width: 10px;
-    height: 10px;
-    border-radius: 10px;
-    text-indent: -9999px;
-    border-top: 2px solid #555;
-    border-right: 1px solid #222;
-    border-bottom: 1px solid #444;
-    border-left: 2px solid black;
-    behavior: url(static/js/PIE.htc);
-    position: relative;
-    margin: 3px;
-    vertical-align: top;
-    line-height: 12px;
-}
-
-.current_hinter {
-    background-color: skyblue;
-    border: 1px solid black;
-    height: 11px;
-    width: 11px;
-}
-
-.steps_wrapper {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    height: 380px;
-    width: 3320px;
-}
-
-.steps {
-    float: left;
-    position: relative;
-    width: 830px;
-    height: 380px;
-}
-
-.active {
-    visibility: visible;
-}
+/*.active {*/
+/*visibility: visible;*/
+/*}*/
 
 
 .globaltips {
@@ -176,49 +117,15 @@ body {
 
 .tip4 {
     width: 79px;
-    background-position: 0 -268px;
+    background-position: 0 -248px;
 }
 
-.global-nav div {
-    position: relative;
-    z-index: 2;
-    background-image: url(../img/world.png);
-    width: 24px;
-    text-indent: -9999px;
-    height: 34px;
-    top: 220px;
-    cursor: pointer;
-}
-
-.gn-right {
-    background-position: 0 -397px;
-    float: right;
-    margin-right: 20px;
-}
-
-.gn-right:hover {
-    background-position: -24px -397px;
-}
-
-.gn-left {
-    background-position: -48px -397px;
-    float: left;
-    margin-left: 10px;
-}
-
-.gn-left:hover {
-    background-position: -72px -397px;
-}
-
-.gn-hide {
-    visibility: hidden;
-    opacity: 0;
-}
 
 .theme_wrapper {
     width: 600px;
     text-align: center;
     margin: auto;
+    color: #333333;
 }
 
 .theme {
@@ -251,70 +158,117 @@ body {
     background-position: -538px -188px;
 }
 
-.option_wrapper {
-    padding-left: 64px;
-    padding-top: 15px;
-}
-
-.options_desc {
-    float: left;
-    line-height: 100%;
-    vertical-align: middle;
-    width: 80px;
-    text-align: right;
-    margin-left: -20px;
-}
-
-.options_desc:after {
-    content: '.';
-    display: block;
-    visibility: hidden;
-    clear: both;
-    font-size: 0;
-    line-height: 0;
-}
-
-.font-list,
-.master-list
-{
-    list-style: none;
-    list-style-type: none;
-    width: 320px;
-    position: relative;
-    margin-left: 60px;
-    padding-left: 0px;
-    margin-bottom: 0;
-    margin-top: 0;
-}
-
 .master-list
 {
     height: 64px;
+    margin-bottom: 5px;
 }
+
+.masterr-list
+{
+    display: none;
+}
+
 
 .master-list li
 {
     display: inline-block;
     font-size: 12px;
     width: 75px;
-    margin-bottom: 10px;
     float: left;
 }
 
-.font-list li {
-    display: inline-block;
-    font-size: 12px;
-    width: 60px;
-    margin-bottom: 10px;
+.fp-2
+{
+    background: #222 url(../img/world.png) no-repeat -34px -334px;
 }
 
-.font_preview {
-    background: #222 url(../img/world.png) no-repeat 0 -333px;
-    height: 33px;
-    width: 33px;
+.fp-3
+{
+    background: #222 url(../img/world.png) no-repeat -68px -334px;
+}
+
+.fp-4
+{
+    background: #222 url(../img/world.png) no-repeat -102px -334px;
+}
+
+.fp-5
+{
+    background: #222 url(../img/world.png) no-repeat -136px -334px;
+}
+
+.fp-6
+{
+    background: #222 url(../img/world.png) no-repeat -170px -334px;
+}
+
+.fp-7
+{
+    background: #222 url(../img/world.png) no-repeat -204px -334px;
+}
+
+.fp-8
+{
+    background: #222 url(../img/world.png) no-repeat -238px -334px;
+}
+
+.fp-9
+{
+    background: #222 url(../img/world.png) no-repeat -272px -334px;
+}
+
+.fp-10
+{
+    background: #222 url(../img/world.png) no-repeat -306px -334px;
+}
+
+.white-border
+{
+    border-color: white;
+}
+
+.black-border
+{
+    border-color: #107fb1;
+}
+
+.fp-border
+{
+    background: white url(../img/world.png) no-repeat -0px -428px;
+}
+
+.fp-hl
+{
+    background: white url(../img/world.png) no-repeat -45px -428px;
+}
+
+.master-list li
+{
+    background-color: #FFFFFF;
+}
+
+.master_fp {
+    height: 43px;
+    width: 43px;
     margin: auto;
+    background-color: white;
 }
 
+.fp-shadow-border
+{
+    background: white url(../img/world.png) no-repeat -135px -428px;
+}
+
+.fp-shadow-no
+{
+    background: white url(../img/world.png) no-repeat -90px -428px;
+}
+
+.fp-shadow-shift
+{
+    background: white url(../img/world.png) no-repeat -180px -428px;
+}
 
 .deer_trigger_button {
     position: absolute;
@@ -332,10 +286,15 @@ body {
 {
     background:  transparent url(../img/world.png) no-repeat -94px -368px;
     width: 94px;
-    height: 30px;
+    height: 29px;
     cursor: pointer;
-    margin-left: 69px;
     margin-top: 5px;
+}
+
+.preview-div
+{
+    float: left;
+    padding-left: 69px;
 }
 
 .preview-button:hover
@@ -347,37 +306,283 @@ body {
     background: transparent url(../img/world.png) no-repeat -94px -368px;
 }
 
-#option-wrapper-left
-{
-    width: 490px;
-    float: left;
-}
-
-#option-wrapper-right
-{
-    width: 230px;
-    padding-right: 45px;
-    overflow: hidden;
-    float: right !important;
-}
-
 .od_font
 {
     margin-top: 35px;
-}
-
-.color_input
-{
-    width: 75px;
-}
-
-.color_options
-{
-    margin-bottom: 31px;
 }
 
 .option-item
 {
    /* padding-left: 60px; */
     width: 430px;
+}
+
+.option_window
+{
+    margin-bottom: 15px;
+}
+
+#save-to-disk
+{
+    text-decoration: none;
+    font-size: 12px;
+    color: gray;
+}
+
+#save-to-disk:hover
+{
+    color: blue;
+}
+
+#nav-left
+{
+    height: 470px;
+    margin-left: 10px;
+}
+
+ #nav-right
+{
+    height: 470px;
+    margin-left: 20px;
+}
+
+#func-div
+{
+    height: 470px;
+}
+
+.step
+{
+
+}
+
+.nav-handler {
+    cursor: pointer;
+    background-image: url(../img/world.png);
+    width: 24px;
+    height: 34px;
+    margin-top: 218px;
+}
+
+.gn-right {
+    background-position: 0 -397px;
+}
+
+.gn-right:hover {
+    background-position: -24px -397px;
+}
+
+.gn-left {
+    background-position: -48px -397px;
+}
+
+.gn-left:hover {
+    background-position: -72px -397px;
+}
+
+.steps
+{
+    margin-top: 20px;
+    height: 380px;
+}
+
+#char
+{
+    margin: 0px 0;
+}
+
+.hinter-desc {
+    width: 76px;
+    height: 44px;
+    margin-bottom: -3px;
+    background: transparent url(../img/world.png) no-repeat 0 -289px;
+    position: absolute;
+    left: 364px;
+}
+
+.hinter
+{
+    margin-top: -3px;
+    background-color: #DDD;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    border-top: 2px solid #555;
+    border-right: 1px solid #222;
+    border-bottom: 1px solid #444;
+    border-left: 2px solid black;
+    behavior: url(static/js/PIE.htc);
+    position: relative;
+    margin: 43px 3px 3px;
+    vertical-align: top;
+    line-height: 12px;
+    display: inline-block;
+    font-size: 0;
+    color: #DDD;
+    /*text-indent: -1000px;*/
+}
+
+.current_hinter {
+    background-color: skyblue;
+    border: 1px solid black;
+    height: 11px;
+    width: 11px;
+    color: skyblue;
+}
+
+.hinter-wrapper
+{
+    /*border:  1px solid white;*/
+}
+
+.option_wrapper {
+    padding-top: 15px;
+}
+
+.options_desc {
+    line-height: 100%;
+    vertical-align: middle;
+    text-align: right;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.label-desc
+{
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+/*.options_desc:after {*/
+/*content: '.';*/
+/*display: block;*/
+/*visibility: hidden;*/
+/*clear: both;*/
+/*font-size: 0;*/
+/*line-height: 0;*/
+/*}*/
+
+/*.font-list,*/
+/*.master-listtt*/
+/*{*/
+/*list-style: none;*/
+/*list-style-type: none;*/
+/*width: 320px;*/
+/*position: relative;*/
+/*margin-left: 60px;*/
+/*padding-left: 0px;*/
+/*margin-bottom: 0;*/
+/*margin-top: 0;*/
+/*}*/
+
+.font-list
+{
+    margin: 0;
+    height:  90px;
+    padding-right: 30px;
+    padding-left: 0;
+}
+.font-list li {
+    display: inline-block;
+    font-size: 12px;
+    width: 60px;
+    height: 35px;
+    margin-bottom: 10px;
+    /*border: 1px solid #FFF;*/
+    /*display: -moz-inline-stack;*/
+    zoom: 1;
+    *display: inline;
+}
+
+.font-preview {
+    height: 33px;
+    width: 33px;
+    margin: auto;
+    background-color: white;
+    border-style: solid;
+    border-width: 2px;
+    float: left;
+}
+
+.fp-1
+{
+    background: #222 url(../img/world.png) no-repeat 0 -334px;
+}
+
+.font-options
+{
+    height: 106px;
+}
+
+.color_input
+{
+    width: 72px;
+}
+
+#color-shadow
+{
+    margin-left: -0px;
+}
+
+.color-options
+{
+    height: 40px;
+}
+
+.master-list label,
+.color-options label
+{
+    font-weight: normal;
+}
+
+.od-color
+{
+    padding-top: 4px;
+}
+
+.master-list
+{
+    padding-left: 0;
+    color: #333333;
+}
+
+.finish-button
+{
+    background:  transparent url(../img/world.png) no-repeat -188px -368px;
+    width: 94px;
+    height: 29px;
+    cursor: pointer;
+    margin-left: 308px;
+    margin-top: 5px;
+    margin-top: 5px;
+}
+
+.finish-button:hover {
+    background: transparent url(../img/world.png) no-repeat -282px -368px;
+}
+
+#step4 div
+{
+    border: 1px solid #FFF;
+}
+
+#final-demo-head
+{
+    text-align: center;
+    outline: none;
+    background-color: #DDD;
+    box-shadow: 4px 4px 4px #222;
+}
+
+.colors
+{
+    height: 17px;
+    margin-left: -10px;
+}
+
+.colors input
+{
+    margin: 0px;
 }

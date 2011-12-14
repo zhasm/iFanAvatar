@@ -1,49 +1,48 @@
-$(function() {
+$(document).ready(function() {
     $("#char").focus();
 
     var step = 1;
 
     $('.nav-handler').click(function(event) {
-
-        var $stepsWrapper = $('#stepsWrapper');
-        var $active = $('>.active', $stepsWrapper);
-        var $target, $furtherTarget;
-
-        if(/left/.test(event.currentTarget.id)) {
-            $target = $active.prev();
-            $furtherTarget = $target.prev();
-        } else if (/right/.test(event.currentTarget.id)) {
-            $target = $active.next();
-            $furtherTarget = $target.next();
+        
+        //show step
+        var position = 1;
+        if (event.target.id === 'turn-left')
+        {
+            position = -1;
+        }
+        step = step + position;
+        $(".steps").hide();
+        $("#step" + step.toString()).show();
+        //show nav handler
+        $(".nav-handler").show();
+        if (step === 1)
+        {
+            $("#turn-left").hide();
+        }
+        if (step === 4)
+        {
+            $("#turn-right").hide();
         }
 
-
-        $active.removeClass('active');
-        $target.addClass('active');
-
-        step = parseInt($target[0].id.replace(/step/, ''), 10);
-
-        $('.current_hinter').removeClass('current_hinter');
-        $("#hinter" + step).addClass('current_hinter');
-
-        $('.hinter_desc').css({
-            backgroundPositionX: (step - 1) * -76 + 'px',
+        //hinter handler
+        $(".hinter").removeClass('current_hinter');
+        $("#hinter" + step.toString()).addClass('current_hinter');
+        
+        var pos = $("#hinter" + step.toString()).position().left;
+        //move right
+        $('.hinter-desc').css({
+            backgroundPositionX: (step - 1) * -76 + 'px'
         }).animate({
-            left: $('.current_hinter').position().left,
+            left:  $("#hinter" + step.toString()).position().left
         });
-
-
-
-        if ($furtherTarget.length === 0) {
-            $(this).addClass('gn-hide');
-        } else {
-            $('.gn-hide').removeClass('gn-hide');
-        }
-
-        $stepsWrapper.animate({
-            left: $target.position().left * -1
-        });
-
     });
 
+    $(".font-preview").click(function(event) {
+        $(".font-preview").removeClass('black-border');
+        $(".font-preview").addClass('white-border');
+        $(event.target).removeClass('white-border');
+        $(event.target).addClass('black-border');
+        
+    });
 });

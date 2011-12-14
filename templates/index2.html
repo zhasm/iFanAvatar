@@ -2,11 +2,17 @@
 <html>
     <head>
         <meta charset="utf-8"/>
-        <title>Fanfou Avatar</title>
+        <title>饭否头像生成器</title>
+        <link rel="stylesheet" href="static/css/screen.css" type="text/css" media="screen, projection">
+        <link rel="stylesheet" href="static/css/print.css" type="text/css" media="print"> 
+        <!--[if lt IE 8]>
+            <link rel="stylesheet" href="static/css/ie.css" type="text/css" media="screen, projection">
+        <![endif]-->
         <link rel="stylesheet" href="static/css/base.css" media="screen"/>
         <!--[if lt IE 9]>
         <script src="static/js/html5.js"></script>
         <![endif]-->
+        <link href="http://static.fanfou.com/favicon.ico" rel="shortcut icon">
         <script src="static/js/jquery-1.7.1.min.js"></script>
         <script src="static/js/jquery-ui-1.8.16.custom.min.js"></script>
         <script src="static/js/bgpos.js"></script>
@@ -19,25 +25,21 @@
         </div>
         <div class="wrapper">
             <div class="inner_wrapper">
-                <div class="global-nav">
-                    <div id="turn-left" class="nav-handler gn-hide gn-left">left</div>
-                    <div id="turn-right" class="nav-handler gn-right">right</div>
+                <div id="nav-left" class="nav-left-handler span-1 first">
+                    <div class="nav-handler gn-left hide" id="turn-left"></div>
                 </div>
-
-                <div id="stepsWrapper" class="steps_wrapper">
-
-                    <figure id="step1" class="active steps">
+                <div id="func-div" class="steps-div span-18">
+                    <div id="step1" class="steps">
                         <div class="globaltips tip1">请在下面图片框内输入文字</div> 
                         <input type="text" maxlength="1" class="big_input" name="char" id="char"/>
-                    </figure>
-
-                    <figure id="step2" class="steps">
+                    </div>
+                    <div id="step2" class="steps hide">
                         <div class="globaltips tip2">请选择模板</div> 
                         <div class="theme_wrapper">
                             <form method="get" id="form1" action="/">
                                 <div class="theme">
                                     <div class="theme_preview tp_deer"></div>
-                                    <input type="radio" name="theme" id="theme-deer" value="deer" >
+                                    <input type="radio" name="theme" id="theme-deer" value="deer" checked="checked">
                                     <label for="theme-deer">圣诞鹿角</label>
                                 </div>
                                 <div class="theme">
@@ -57,121 +59,145 @@
                                 </div>
                             </form>
                         </div>
-                    </figure>
+                    </div>
 
-                    <figure id="step3" class="steps">
+                    <div id="step3" class="steps hide">
                         <div class="globaltips tip3">自定义设置</div> 
                         <div class="option_wrapper">
-                            <div id="option-wrapper-left" class="option-left">
-                                
-                                <div class="option_window font_options">
-                                    <span class="options_desc od_font">字体:</span>
-
-                                    <ul class="font-list">
-                                        <li>
-                                            <div class="font_preview"></div>
-                                        </li>
-                                        <li>
-                                            <div class="font_preview"></div>
-                                        </li>
-                                        <li>
-                                            <div class="font_preview"></div>
-                                        </li>
-                                        <li>
-                                            <div class="font_preview"></div>
-                                        </li>
-                                        <li>
-                                            <div class="font_preview"></div>
-                                        </li>
-                                        <br />
-                                        <li>
-                                            <div class="font_preview"></div>
-                                        </li>
-                                        <li>
-                                            <div class="font_preview"></div>
-                                        </li>
-                                        <li>
-                                            <div class="font_preview"></div>
-                                        </li>
-                                        <li>
-                                            <div class="font_preview"></div>
-                                        </li>
-                                        <li>
-                                            <div class="font_preview"></div>
-                                        </li>
-                                    </ul>
+                            <div id="option-wrapper-left" class="span-12">
+                              <div class="option_window font-options">
+                                <div class="span-2">
+                                  <span class="options_desc od_font span-2">字体:</span>
                                 </div>
+                                <div class="span-9 last">
+                                  <ul class="font-list">
+                                    <li>
+                                    <div class="font-preview fp-1 white-border"></div>
+                                    </li>
+                                    <li>
+                                    <div class="font-preview fp-2 white-border"></div>
+                                    </li>
+                                    <li>
+                                    <div class="font-preview fp-3 white-border"></div>
+                                    </li>
+                                    <li>
+                                    <div class="font-preview fp-4 white-border"></div>
+                                    </li>
+                                    <li>
+                                    <div class="font-preview fp-5 white-border"></div>
+                                    </li>
+                                    <li>
+                                    <div class="font-preview fp-6 white-border"></div>
+                                    </li>
+                                    <li>
+                                    <div class="font-preview fp-7 white-border"></div>
+                                    </li>
+                                    <li>
+                                    <div class="font-preview fp-8 white-border"></div>
+                                    </li>
+                                    <li>
+                                    <div class="font-preview fp-9 white-border"></div>
+                                    </li>
+                                    <li>
+                                    <div class="font-preview fp-10 black-border"></div>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
 
-                                <div class="option_window color_options">
-                                    <span class="options_desc od_color">阴影颜色:</span>
-                                    <input type="text" class="color_input" value="#112233"/>
-                                    <label>文字颜色：<input type="text" class="color_input"/></label>
-                                    <label>背景颜色：<input type="text" class="color_input"/></label>
+                                <div class="option_window color-options">
+                                  <div class="span-2">
+                                    <span class="options_desc od-color span-2">阴影颜色:</span>
+                                  </div>
+                                  <div class="colors span-10 last">
+                                    <input type="text" id="color-shadow" class="color_input" value="#112233"/>
+                                    <label><span class="label-desc">文字颜色：</span><input type="text" class="color_input"/></label>
+                                    <label><span class="label-desc">背景颜色：</span><input type="text" class="color_input"/></label>
+                                  </div>
                                 </div>
 
                                 <div class="option_window advanced_options">
-                                    <span class="options_desc od_advanced">高级设置:</span>
+                                  <div class="span-2">
+                                    <span class="options_desc od_advanced span-2">高级设置:</span>
+                                  </div>
+                                  <div class="span-9 last">
                                     <div>
-                                    <ul class="master-list">
+                                      <ul class="master-list">
                                         <li class="">
-                                            <div class="font_preview"></div>
-                                            <input type="checkbox" name="theme-border" id="theme-border" value="border" >
-                                            <label for="theme-border">显示边框</label>
+                                        <div class="master_fp fp-border"></div>
+                                        <div class="master-fp-desc">
+                                          <input type="checkbox" name="theme-border" id="theme-border" value="border" >
+                                          <label for="theme-border">显示边框</label>
+                                        </div>
                                         </li>
                                         <li class="">                           
-                                            <div class="font_preview"></div>
-                                            <input type="checkbox" name="theme-border" id="theme-hl" value="hl" >
-                                            <label for="theme-hl">背光高亮</label>
+                                        <div class="master_fp fp-hl"></div>
+                                        <div class="master-fp-desc">
+                                          <input type="checkbox" name="theme-hl" id="theme-hl" value="hl" >
+                                          <label for="theme-hl">背光高亮</label>
+                                        </div>
                                         </li>
-                                    </ul>
+                                      </ul>
                                     </div> 
-                                    <div>
-                                    <ul class="master-list">
+                                    <div class="">
+                                      <ul class="master-list">
                                         <li class="">
-                                            <div class="font_preview"></div>
-                                            <input type="radio" name="theme-hl" id="theme-hl" value="hl" >
-                                            <label for="theme-hl">背光高亮</label>
+                                        <div class="master_fp fp-shadow-no"></div>
+                                        <div class="master-fp-desc">
+                                          <input type="radio" name="theme-shadow" id="theme-shadow-no" value="hl" checked="checked" >
+                                          <label for="theme-shadow-no">无阴影</label>
+                                        </div>
                                         </li>
                                         <li class="">
-                                            <div class="font_preview"></div>
-                                            <input type="radio" name="theme-hl" id="theme-hl" value="hl" >
-                                            <label for="theme-hl">背光高亮</label>
+                                        <div class="master_fp fp-shadow-border"></div>
+                                        <div class="master-fp-desc">
+                                          <input type="radio" name="theme-shadow" id="theme-shadow-border" value="hl" >
+                                          <label for="theme-shadow-border">阴影描边</label>
+                                        </div>
                                         </li>
                                         <li class="">
-                                            <div class="font_preview"></div>
-                                            <input type="radio" name="theme-hl" id="theme-hl" value="hl" >
-                                            <label for="theme-hl">背光高亮</label>
+                                        <div class="master_fp fp-shadow-shift"></div>
+                                        <div class="master-fp-desc">
+                                          <input type="radio" name="theme-shadow" id="theme-shadow-shift" value="hl" >
+                                          <label for="theme-shadow-shift">阴影偏移</label>
+                                        </div>
                                         </li>
-
-                                    </ul>
+                                      </ul>
                                     </div>
+                                  </div>
                                 </div>
                             </div>
-                            <div id="option-wrapper-right" class="wrapper-right">
-                                <img src="/static/img/demo.png" class="demo-head" alt="header-demo" />
-                                <div class="preview-button"></div>
+                            <div id="demo-div" class="last span-6">
+
+                                <img src="static/img/demo.png" class="demo-head" alt="header-demo" />
+                                <div class="preview-div">
+                                  <div class="preview-button"></div>
+                                </div>
                             </div>
 
                         </div>
+                    </div>
 
-
-                        <!-- deer page -->
-
-
-                    </figure>
-
-                    <figure id="step4" class="steps">
-                        <div class="globaltips tip4">完成啦</div> 
-                    </figure>
+                    <div id="step4" class="steps hide">
+                      <div class="globaltips tip4">完成啦</div> 
+                        <img id="final-demo-head" src="static/img/demo.png" class="demo-head" alt="header-demo" />
+                      <div class="step4-ie6-hacker">
+                        <div class="finish-button"></div>
+                      </div>
+                      <a href="#" id="save-to-disk">保存到电脑</a>
+                    </div>
+                    <div class="hinter-wrapper">
+                        <div class="hinter-desc">&nbsp;</div>
+                        <span id="hinter1" class="hinter current_hinter">1</span>
+                        <span id="hinter2" class="hinter">2</span>       
+                        <span id="hinter3" class="hinter">3</span>       
+                        <span id="hinter4" class="hinter">4</span>       
+                    </div>    
                 </div>
-
-                <div class="hinter_wrapper">            
-                    <div class="hinter_desc"></div>
-                   <span id="hinter1" class="hinter current_hinter">1</span>
-                   <span id="hinter2" class="hinter">2</span>       
-                   <span id="hinter3" class="hinter">3</span>       
-                   <span id="hinter4" class="hinter">4</span>       
-                </div>                                  
+                <div id="nav-right" class="nav-right-handler last span-1">
+                    <div class="nav-handler gn-right" id="turn-right"></div>
+                </div>
+                
             </div>
         </div>
     </body>
