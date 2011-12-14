@@ -45,4 +45,21 @@ $(document).ready(function() {
         $(event.target).addClass('black-border');
         
     });
+
+    $('#color-shadow, #color-text, #color-bg').ColorPicker({
+        onChange: function(hsb, hex, rgb, el) {
+            hex = hex.toUpperCase();
+            $(el).val("#"+hex);
+        },
+        onSubmit: function(hsb, hex, rgb, el) {
+            hex = hex.toUpperCase();
+            $(el).val("#"+hex);
+            $(el).ColorPickerHide();
+        },
+        onBeforeShow: function () {
+            $(this).ColorPickerSetColor(this.value);
+        }
+    }).bind('keyup', function() {
+            $(this).ColorPickerSetColor(this.value);
+    });
 });
