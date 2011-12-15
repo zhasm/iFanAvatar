@@ -5,7 +5,7 @@ body {
 .flake {
     width: 385px;
     height: 340px;
-    background: transparent url(../img/world.png) no-repeat 0 -472px;
+    background: transparent url(../img/world.png) no-repeat 1px -472px;
     position: absolute; 
     top: 0;
     left: 0;
