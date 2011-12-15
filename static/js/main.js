@@ -49,7 +49,56 @@ $(document).ready(function() {
         
     });
 
-    $('#color-shadow, #color-text, #color-bg').ColorPicker({
+    $('#color-bg').click(function() {
+        $("#color-bg").autocomplete("search", "");
+    });
+
+
+    $("#color-bg").autocomplete({
+        source: ['181818',
+                 '313231',
+                 '0073CC',
+                 '00A3CC',
+                 '00CC73',
+                 '00CCBE',
+                 '0500CC',
+                 '43CC00',
+                 '5D00BF',
+                 '808080',
+                 '96CC00',
+                 'A300CC',
+                 'C20E09',
+                 'CC0051',
+                 'CC00A3',
+                 'CC2700',
+                 'CC7900',
+                 'CCB100',
+                 'FF7E7E',
+                 'FF7EB2',
+                ],
+        minLength: 0,
+        select: function (event, ui) {
+            $("#color-bg").val('#' + ui.item.value);
+            return false;
+        },
+        focus: function(event, ui) {
+            $("#color-bg").val('#' + ui.item.value);
+        }
+            
+    })
+        .data("autocomplete")._renderItem = function (ul, item) {
+            var html_str = '<li class="autocomplete" id="' +
+                item.value +
+                '"style="background-color:#' +
+                item.value +
+                ';hover{background-color:#' +
+                item.value + ';}"></li>';
+            var node = $(html_str)
+                .data( "item.autocomplete", item )
+                .append('<a>&nbsp;</a>').appendTo(ul);
+        };
+
+    $('#color-shadow, #color-text').ColorPicker({
         onChange: function(hsb, hex, rgb, el) {
             hex = hex.toUpperCase();
             $(el).val("#"+hex);
