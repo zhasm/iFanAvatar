@@ -77,6 +77,7 @@ body > div.flake
     background-color: #DDD;
     box-shadow: 0 0 4px #222 inset;
     border: 1px thin #222;
+    background:  transparent url(../img/world.png) no-repeat -383px -472px;
 }
 
 /*.steps_wrapper {*/
