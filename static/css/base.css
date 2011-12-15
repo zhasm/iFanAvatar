@@ -102,7 +102,7 @@ body > div.flake
 }
 
 .tip1 {
-    width: 236px;
+    width: 238px;
     background-position: 0 -188px;
 }
 
@@ -364,6 +364,11 @@ body > div.flake
     width: 24px;
     height: 34px;
     margin-top: 218px;
+}
+
+.gn-right-disable
+{
+    background-position: -96px -397px;
 }
 
 .gn-right {
@@ -630,3 +635,7 @@ body > div.flake
     margin-left: 15px;
 }
 
+.ui-state-hover1
+{
+    border: 2px solid white;
+}
