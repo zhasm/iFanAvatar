@@ -62,4 +62,30 @@ $(document).ready(function() {
     }).bind('keyup', function() {
             $(this).ColorPickerSetColor(this.value);
     });
+
+    $("#deer-horn-left").resizable({
+        aspectRatio: 1/1,
+        maxHeight: 200,
+        maxWidth: 200,
+        minHeight: 10,
+        minWidth: 10
+    }).draggable({
+        zIndex: 9999999,
+        stop: function() {
+            $(this).removeClass('ui-draggable-dragging');
+        }
+    });
+
+    $("#deer-horn-right").resizable({
+        aspectRatio: 1/1,
+        maxHeight: 200,
+        maxWidth: 200,
+        minHeight: 10,
+        minWidth: 10
+    }).draggable({
+        zIndex: 9999999,
+        stop: function() {
+            $(this).removeClass('ui-draggable-dragging');
+        }
+    });
 });
