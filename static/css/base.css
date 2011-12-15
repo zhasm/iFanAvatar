@@ -366,6 +366,11 @@ body > div.flake
     margin-top: 218px;
 }
 
+.gn-right-disable
+{
+    background-position: -96px -397px;
+}
+
 .gn-right {
     background-position: 0 -397px;
 }

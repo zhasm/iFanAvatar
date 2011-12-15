@@ -4,7 +4,10 @@ $(document).ready(function() {
     var step = 1;
 
     $('.nav-handler').click(function(event) {
-        
+        if (! $("#char").val())
+        {
+            return ;
+        }
         //show step
         var position = 1;
         if (event.target.id === 'turn-left')
@@ -86,6 +89,20 @@ $(document).ready(function() {
         zIndex: 9999999,
         stop: function() {
             $(this).removeClass('ui-draggable-dragging');
+        }
+    });
+
+    $("#char").keyup(function () {
+        var img_text = $("#char").val();
+        if (img_text)
+        {
+            $("#turn-right").removeClass("gn-right-disable");
+            $("#turn-right").addClass("gn-right");
+        }
+        else
+        {
+            $("#turn-right").removeClass("gn-right");
+            $("#turn-right").addClass("gn-right-disable");
         }
     });
 });
