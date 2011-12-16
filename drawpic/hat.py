@@ -26,7 +26,7 @@ def parseHatParameters(request):
         hatWidths  = _safeGetList(request, "hatWidth")
         
         count=len(hatNames)
-#        print angles, offsetTops, offsetLefts, hatHeights, hatWidths
+
         return [(hatNames[i],\
                  angles[i],\
                  offsetTops[i],\
@@ -45,7 +45,6 @@ def hat(request, bg):
     for para in paras:
         #the ordering maters!!!
         hatName, angle, offsetTop, offsetLeft, hatHeight, hatWidth = para
-        print "PARA", para 
         bg = draw_hat( bg, hatName, angle, offsetLeft, offsetTop, hatWidth, hatHeight)
     
     return bg
