@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django import forms
 from fanfouapi.models import FFUser
 from django.http import HttpResponse
-from draw import findPath
+from iFanAvatar.misc  import getPath
 from iFanAvatar.views import home
 import re
 import json
@@ -37,7 +37,7 @@ def update_profile_image(request):
     url = request.session['avatar_to_upload']
     url = re.sub(r"\/?\.?\/site_media", "media", url)
 
-    filename=findPath(url)
+    filename=getPath(url)
     content= open(filename).read()
 
     try:

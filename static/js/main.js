@@ -36,7 +36,7 @@ function collect_param()
                          hatHeight:  $('#horn-img-left').height()
                         };
         hat_related.left = left_horn;
-        
+
         var right_holder = $('#deer-horn-right');
         var right_holder_offset = right_holder.offset();
         var right_horn = {hat: 'righthorn.png',
@@ -77,7 +77,7 @@ function head_preview (event)
     }
 
 
-    var new_url = '/gen2?bg=' + params.bg;
+    var new_url = '/gen?bg=' + params.bg;
     new_url = new_url + gen_url(params.font_related);
     var rst_url = new_url;
     if ( $('input:radio[name=theme]:checked').val() == 'deer')
@@ -123,11 +123,11 @@ function show_step(step)
                 $('.colors label').hide();
                 $('.color-options').show();
                 $('.master-list-down').show();
- 
+
             }
         }
     }
-    
+
     //show nav handler
     $(".nav-handler").show();
     if (step === 1)
@@ -146,7 +146,7 @@ function show_step(step)
     //hinter handler
     $(".hinter").removeClass('current_hinter');
     $("#hinter" + step.toString()).addClass('current_hinter');
-    
+
     var pos = $("#hinter" + step.toString()).position().left;
     //move right
     $('.hinter-desc').css({
@@ -181,7 +181,7 @@ $(document).ready(function() {
         $(".font-preview").addClass('white-border');
         $(event.target).removeClass('white-border');
         $(event.target).addClass('black-border');
-        
+
     });
 
     $('#color-bg').click(function() {

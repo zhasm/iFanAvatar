@@ -1,194 +1,216 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="zh-CN">
-
-    <head profile="http://gmpg.org/xfn/11">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta http-equiv="Content-Language" content="cs" />
-        <meta name="description" content="iFan-style Avatar Generator" />
-        <meta name="keywords" content="ifan,avatar,generator,tool,爱饭,头像,生成,鹿角,麋鹿,圣诞" />
-
-        <title>爱饭样式头像生成器</title>
-         <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css?ver={{ build|slice:':8'  }}" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="site_media/styles/screen.css?ver={{ build|slice:':8'  }}" type="text/css" media="screen" />
-        <link rel="icon" href="site_media/favicon.ico" type="image/gif" />
-
-
-        <script type="text/javascript" src="site_media/scripts/jquery.js?ver={{ build|slice:':8'  }}"></script>
-        <script type="text/javascript" src="site_media/scripts/jquery-ui.min.js?ver={{ build|slice:':8'  }}"></script>
-        <!-- color picker begins-->
-        <link rel="stylesheet" href="site_media/colorpicker/css/colorpicker.css" type="text/css" />
-        <link rel="stylesheet" media="screen" type="text/css" href="site_media/colorpicker/css/layout.css" />
-        <script type="text/javascript" src="site_media/colorpicker/js/colorpicker.js?ver={{ build|slice:':8'  }}"></script>
-        <script type="text/javascript" src="site_media/colorpicker/js/eye.js?ver={{ build|slice:':8'  }}"></script>
-        <script type="text/javascript" src="site_media/colorpicker/js/utils.js?ver={{ build|slice:':8'  }}"></script>
-        <script type="text/javascript" src="site_media/colorpicker/js/layout.js?ver={{ build|slice:':8'  }}"></script>
-        <!-- color picker ends-->
-
-        <script type="text/javascript" src="site_media/scripts/main.js?ver={{ build|slice:':8'  }}"></script>
-        <script type="text/javascript" src="site_media/scripts/ga.js?ver={{ build|slice:':8'  }}"></script>
-
-    </head>
-
-    <body>
-        <!--[if lte IE 7]>
-        <style>
-            #ie6warning {
-                color:black;
-                width:100%;
-                height:100%:
-                overflow:hidden;
-                background-color:white;
-                text-align:center;
-                padding:50px 0;
-                font-size:14px;
-                z-index:99999px;
-            }
-        </style>
-        <div id="ie6warning">
-            <p>您的浏览器已不被支持，请升级浏览器或使用 <a href="http://www.google.com/chrome">Chrome</a> <a href="http://mozilla.com">Firefox</a> <a href="http://www.apple.com/safari">Safari</a>。</p>
-        </div>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>饭否头像生成器</title>
+        <link rel="stylesheet" href="static/css/screen.css" type="text/css" media="screen, projection">
+        <link rel="stylesheet" href="static/css/print.css" type="text/css" media="print">
+        <!--[if lt IE 8]>
+            <link rel="stylesheet" href="static/css/ie.css" type="text/css" media="screen, projection">
         <![endif]-->
-        <div id="wrapper">
-            <div id="title">
-                <a href="/"><img src="site_media/images/title.png" id="title_img" alt="爱饭样式头像生成器" /></a>
-            </div>
-            <div id="content">
-                <div id="opt_text_input" class="opt left">
-                    <h3>在下方输入要生成的文字</h3>
-                    <input maxlength="1" tabindex="1" id="text_input" class="left sprite" value="饭"/>
-                    <!--<span class="hint left" style="margin:10px 0 0 10px;">本窗格有简单预览效果<br />支持单个汉字或全角英文字符</span>-->
-                </div>
-                <div id="opt_templates" class="opt left">
-                    <h3>预设模板</h3>
-                    <select name="preset" id="preset">
-                        <option value="deer">圣诞鹿角</option>
-                        <option value="ifan">爱饭样式</option>
-                        <option value="fanfou">饭否标准</option>
-                        <option value="custom">自定义</option>
-                    </select>
-                </div>
-                <div class="clear"></div>
-                <div class="hr"></div>
-                <div id="opt_bgcolor" class="opt">
-                    <h3 class="left">背景颜色</h3>
-                    <input type="hidden" id="bg" value="c192"/>
-                    <div id="bgcolors_panel" class="left">
-                        <span id="c192" class="bgcolors left">&nbsp;</span>
-                        <span id="c12" class="bgcolors left">&nbsp;</span>
-                        <span id="c36" class="bgcolors left">&nbsp;</span>
-                        <span id="c52" class="bgcolors left">&nbsp;</span>
-                        <span id="c76" class="bgcolors left">&nbsp;</span>
-                        <span id="c100" class="bgcolors left">&nbsp;</span>
-                        <span id="c154" class="bgcolors left">&nbsp;</span>
-                        <span id="c176" class="bgcolors left">&nbsp;</span>
-                        <span id="c206" class="bgcolors left">&nbsp;</span>
-                        <span id="c242" class="bgcolors left">&nbsp;</span>
-                        <span id="c270" class="bgcolors left">&nbsp;</span>
-                        <span id="c288" class="bgcolors left">&nbsp;</span>
-                        <span id="c312" class="bgcolors left">&nbsp;</span>
-                        <span id="c336" class="bgcolors left">&nbsp;</span>
-                        <span id="c336a" class="bgcolors left">&nbsp;</span>
-                        <span id="c0a" class="bgcolors left">&nbsp;</span>
-                        <span id="cx50" class="bgcolors left">&nbsp;</span>
-                        <span id="cx10" class="bgcolors left">&nbsp;</span>
-                        <span id="bg_deer" class="bgcolors left">&nbsp;</span>
-<!-- waiting for kevin's pics
-                        <span id="transparent" class="bgcolors left">&nbsp;</span>
--->
-                    </div>
-                </div>
-                <div id="opt_font" class="opt">
-                    <h3 class="left">字体</h3>
-                    <select name="font_select" id="font_select">
-                        {% for filename, fontname in fontdict.items %}
-                        {% ifequal filename 'iYaHei.ttf' %}
-                        <option value="{{ filename }}" selected>{{ fontname }}</option>
-                        {% else %}
-                        <option value="{{ filename }}">{{ fontname }}</option>
-                        {% endifequal %}
-                        {% endfor %}
-                    </select>
-                </div>
-                <div id="opt_color" class="opt">
-                    <h3 class="left">文字颜色</h3>
-                    <input name="color_picker" class="color_picker" id="textColor" type="text" value="#FFFFFF" />
-                </div>
-                <div id="opt_sdcolor" class="opt">
-                    <h3 class="left">阴影颜色</h3>
-                    <input name="color_picker" class="color_picker" id="shadowColor" type="text" value="#000000" />
-                </div>
-                <div id="opt_adv" class="opt">
-                    <h3 class="left">高级选项</h3>
-                    <ul id="opt_adv_ul" class="left">
-                        <li><input type="checkbox" id="border" checked="on">&nbsp;显示边框</li>
-						<li><input type="radio" name="shadow" value="0" checked='on'>&nbsp;无阴影</li>
-						<li><input type="radio" name="shadow" value = "1">&nbsp;阴影描边</li>
-						<li><input type="radio" name="shadow" value = "2">&nbsp;阴影偏移</li>
-                        <li><input type="checkbox" id="highlight" checked="on">&nbsp;背景高光</li>
-                    </ul>
-                </div>
-                <div id="gen">
-                    <div id="btn_gen" class="left"></div>
-                    <span class="hint left" style="margin:20px 0 0 10px;">图像生成后，请右键点击图片，<br />选择图片另存为，并保存成 PNG。</span>
-                </div>
-                <div class="clear"></div>
-                <div id="pic_output"><div id="output_link">点击图片即可下载</div></div>
-                <div id="history"></div>
-		<div id="btn_upload"></div>
-           </div>
-           </div>
+        <link rel="stylesheet" href="static/css/colorpicker.css" media="screen"/>
+        <link rel="stylesheet" href="static/css/jquery-ui.css" media="screen"/>
+        <link rel="stylesheet" href="static/css/base.css" media="screen"/>
+        <!--[if lt IE 9]>
+        <script src="static/js/html5.js"></script>
+        <![endif]-->
+        <link href="http://static.fanfou.com/favicon.ico" rel="shortcut icon">
+        <script src="static/js/jquery-1.7.1.min.js"></script>
+        <script src="static/js/jquery-ui.min.js"></script>
+        <script src="static/js/bgpos.js"></script>
+        <script src="static/js/colorpicker.js"></script>
+        <script src="static/js/main.js"></script>
+        <script src="static/js/ga.js"></script>
+    </head>
+    <body>
+        <div class="flake"></div>
+        <div class="header_wrapper">
+            <h1 class="global-header">饭否头像生成</h1>
         </div>
-
-        <div id="footer">
-            <div id='versionInfo' align='center'>© 2009-2012<a href="http://iregex.org/" title="Rex Zhasm" target="_blank">.rex</a>, <a href="http://anegie.com/" title="Kevin Deng" target="_blank">Kevin Deng</a>, <a href="http://fanfou.com/nos." title="Nos." target="_blank">Nos.</a> 保留所有权利。
-                {% if version and build %}
-                Ver <a target="_blank" href="https://github.com/zhasm/iFanAvatar/tree/{{ version }}">{{ version }}</a> build
-                <a target="_blank" href="https://github.com/zhasm/iFanAvatar/commit/{{ build }}">{{ build|slice:":8" }}...</a> (公测)
-                {% endif %}
-                <p>这是一款非盈利的开源工具，由 <a href="http://www.djangoproject.com/" title="The Django Project" target="_blank">Django</a> 及 <a href="http://www.pythonware.com/products/pil/" title="Python Imaging Library" target="_blank">PIL</a> 强力驱动。<br /></p>
-                感谢 <a href="http://fanfou.com/haowanluoluo" target="_blank" title="落小彤">@落小彤</a> 提供鹿角的创意和素材。<br />
-                请访问作者的饭否页面并给予反馈：<a href="http://fanfou.com/zhasm" title="Rex Zhasm" target="_blank">.rex</a> | <a href="http://fanfou.com/anegie" title="Kevin Deng" target="_blank">Kevin Deng</a> | <a href="http://fanfou.com/nos." title="Nos." target="_blank">Nos.</a>
-
-            </div>
+        <div class="wrapper">
+            <div class="inner_wrapper">
+                <div id="nav-left" class="nav-left-handler span-1 first">
+                    <div class="nav-handler gn-left hide" id="turn-left"></div>
+                </div>
+                <div id="func-div" class="steps-div span-18">
+                    <div id="step1" class="steps">
+                        <div class="globaltips tip1">请在下面图片框内输入文字</div>
+                        <input type="text" maxlength="1" class="big_input" name="char" id="char" value="饭" />
+                    </div>
+                    <div id="step2" class="steps hide">
+                        <div class="globaltips tip2">请选择模板</div>
+                        <div class="theme_wrapper">
+                            <form method="get" id="form1" action="/">
+                                <div class="theme">
+                                    <div class="theme_preview tp_deer"></div>
+                                    <input type="radio" name="theme" id="theme-deer" value="deer" checked="checked" rel="deer">
+                                    <label for="theme-deer" rel="deer">圣诞鹿角</label>
+                                </div>
+                                <div class="theme">
+                                    <div class="theme_preview tp_aifan"></div>
+                                    <input type="radio" name="theme" id="theme-aifan" value="c192" rel="c192">
+                                    <label for="theme-aifan">爱饭样式</label>
+                                </div>
+                                <div class="theme">
+                                    <div class="theme_preview tp_fanfou"></div>
+                                    <input type="radio" name="theme" id="theme-fanfou" value="c206" rel="c206">
+                                    <label for="theme-fanfou">饭否样式</label>
+                                </div>
+                                <div class="theme">
+                                    <div class="theme_preview tp_custom"></div>
+                                    <input type="radio" name="theme" id="theme-custom" value="cx50" rel="cx50">
+                                    <label for="theme-custom">自定义</label>
+                                </div>
+                            </form>
+                        </div>
                     </div>
 
+                    <div id="step3" class="steps hide">
+                        <div class="globaltips tip3">自定义设置</div>
+                        <div class="option_wrapper">
+                            <div id="option-wrapper-left" class="span-12">
+                              <div class="option_window font-options">
+                                <div class="span-2">
+                                  <span class="options_desc od_font span-2">字体:</span>
+                                </div>
+                                <div class="span-9 last">
+                                  <ul class="font-list">
+                                    <li>
+                                    <div class="font-preview fp-1 white-border" rel="fzybksjt.ttf"></div>
+                                    </li>
+                                    <li>
+                                    <div class="font-preview fp-2 white-border" rel="jingdianfansuiyi.ttf"></div>
+                                    </li>
+                                    <li>
+                                    <div class="font-preview fp-3 white-border" rel="xujinglei.ttf"></div>
+                                    </li>
+                                    <li>
+                                    <div class="font-preview fp-4 white-border" rel="iYaHei.ttf"></div>
+                                    </li>
+                                    <li>
+                                    <div class="font-preview fp-5 white-border" rel="msjhbd.ttf"></div>
+                                    </li>
+                                    <li>
+                                    <div class="font-preview fp-6 white-border" rel="fzqtj.ttf"></div>
+                                    </li>
+                                    <li>
+                                    <div class="font-preview fp-7 white-border" rel="shoujin.ttf"></div>
+                                    </li>
+                                    <li>
+                                    <div class="font-preview fp-8 white-border" rel="huakanghaibao.ttf"></div>
+                                    </li>
+                                    <li>
+                                    <div class="font-preview fp-9 white-border" rel="liuti.ttf"></div>
+                                    </li>
+                                    <li>
+                                    <div class="font-preview fp-10 black-border" rel="wqy-microhei.ttc"></div>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
 
-        <div id="xmas-special">
-            <div id="xmas-data">
-                <input type="hidden" name="xmas-zoom"/>
-                <input type="hidden" name="xmas-angel"/>
-                <input type="hidden" name="xmas-offset-x"/>
-                <input type="hidden" name="xmas-offset-y"/>
-            </div>
-            <div id="xmas-hat-choose">
-                选择您喜欢的帽子<br />
-                <select id="x_hat">
-                    <option value='hat.png'>hat 1</option>
-                    <option value='hat2.png'>hat 2</option>
-                    <option value='hat3.png'>hat 3</option>
-                    <option value='hat4.png'>hat 4</option>
-                </select>
-            </div>
+                                <div class="option_window color-options">
+                                  <div class="span-2">
+                                    <span class="options_desc od-color span-2">阴影颜色:</span>
+                                  </div>
+                                  <div class="colors span-10 last">
+                                    <input type="text" id="color-shadow" class="color_input" value="#FFFFFF"/>
+                                    <label><span class="label-desc">文字颜色：</span><input type="text" id="color-text" class="color_input" value="#FFFFFF"/></label>
+                                    <label><span class="label-desc">背景颜色：</span><input type="text" id="color-bg" class="color_input" value="#313231" rel="bg"/></label>
+                                  </div>
+                                </div>
 
-            <div id="xmas-off"> </div>
-            <div id="xmas-optins">
-                <input type="hidden" name="xmas-hat-angel"/>
-                <div id="xmas-slider">
+                                <div class="option_window advanced_options">
+                                  <div class="span-2">
+                                    <span class="options_desc od_advanced span-2">高级设置:</span>
+                                  </div>
+                                  <div class="span-9 last">
+                                    <div>
+                                      <ul class="master-list">
+                                        <li class="">
+                                        <div class="master_fp fp-border"></div>
+                                        <div class="master-fp-desc">
+                                          <input type="checkbox" name="theme-border" id="theme-border" value="border" >
+                                          <label for="theme-border">显示边框</label>
+                                        </div>
+                                        </li>
+                                        <li class="">
+                                        <div class="master_fp fp-hl"></div>
+                                        <div class="master-fp-desc">
+                                          <input type="checkbox" name="theme-hl" id="theme-hl" value="hl" >
+                                          <label for="theme-hl">背光高亮</label>
+                                        </div>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                    <div class="master-list-down">
+                                      <ul class="master-list">
+                                        <li class="">
+                                        <div class="master_fp fp-shadow-no"></div>
+                                        <div class="master-fp-desc">
+                                          <input type="radio" name="theme-shadow" id="theme-shadow-no" value="0" checked="checked" >
+                                          <label for="theme-shadow-no">无阴影</label>
+                                        </div>
+                                        </li>
+                                        <li class="">
+                                        <div class="master_fp fp-shadow-border"></div>
+                                        <div class="master-fp-desc">
+                                          <input type="radio" name="theme-shadow" id="theme-shadow-border" value="1" >
+                                          <label for="theme-shadow-border">阴影描边</label>
+                                        </div>
+                                        </li>
+                                        <li class="">
+                                        <div class="master_fp fp-shadow-shift"></div>
+                                        <div class="master-fp-desc">
+                                          <input type="radio" name="theme-shadow" id="theme-shadow-shift" value="2" >
+                                          <label for="theme-shadow-shift">阴影偏移</label>
+                                        </div>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                            <div id="demo-div" class="last span-5">
+                                <!-- deer horn -->
+                                <div id="horn-img-container" class="hide">
+                                    <div id="deer-horn-left" class="horn-img-div">
+                                        <img id="horn-img-left" src="static/img/lefthorn.png" class="horn-img" alt="left-horn" />
+                                    </div>
+                                    <div id="deer-horn-right" class="horn-img-div">
+                                        <img id="horn-img-right" src="static/img/righthorn.png" class="horn-img" alt="right-horn" />
+                                    </div>
+                                </div>
+                                <img src="static/img/demo.png" class="demo-head" alt="header-demo" id="demo-head" />
+                                <div class="preview-div">
+                                    <div class="preview-button"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div id="step4" class="steps hide">
+                      <div class="globaltips tip4">完成啦</div>
+                        <img id="final-demo-head" src="static/img/demo.png" class="demo-head" alt="header-demo" />
+                      <div class="step4-ie6-hacker">
+                          <div class="finish-button"></div>
+                      </div>
+                      <a href="#" id="save-to-disk">保存到电脑</a>
+                    </div>
+                    <div class="hinter-wrapper">
+                        <div class="hinter-desc">&nbsp;</div>
+                        <span id="hinter1" class="hinter current_hinter">1</span>
+                        <span id="hinter2" class="hinter">2</span>
+                        <span id="hinter3" class="hinter">3</span>
+                        <span id="hinter4" class="hinter">4</span>
+                    </div>
                 </div>
-            </div>
-            <hr/>
-            <div id="xmas-hat-holder">
-                <img id="xmas-hat" src="site_media/images/hat.png"/>
-	    </div>
-	    <div id="xmas-hat-holder2">
-                <img id="xmas-hat2" src="site_media/images/righthorn.png"/>
-            </div>
-            <div id="avatar-holder">
-                <img id="avatar-img" src=""/>
-            </div>
-			<div><button id="add_hat">生成</button></div>
-        </div>
+                <div id="nav-right" class="nav-right-handler last span-1">
+                    <div class="nav-handler gn-right" id="turn-right"></div>
+                </div>
 
+            </div>
+        </div>
     </body>
-
 </html>

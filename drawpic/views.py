@@ -11,7 +11,7 @@ import ImageFilter
 from misc import findPath, fontFile, fontPosition
 from hat import hat
 
-def gen2(request):
+def gen(request):
     """to draw pictures with all parameters set"""
 
     #background
@@ -67,11 +67,9 @@ def gen2(request):
 def my_draw(request, bg, text, font, textColor, shadowColor, border, shadow, highlight):
     """draw avatar. Core part of the program."""
     from hashlib import md5
-
-    pure=md5(text+bg+font+textColor+shadowColor+str(border)+str(shadow)+str(highlight)).hexdigest()+".png"
-
+    text_md5=md5(text.encode('utf-8')).hexdigest()
+    pure=md5(text_md5+bg+font+textColor+shadowColor+str(border)+str(shadow)+str(highlight)).hexdigest()+".png"
     filename=findPath('media/result/')+pure
-
     pFont=fontFile(font)
 
     (textPosition, fontSize)=fontPosition(pFont)
@@ -108,7 +106,7 @@ def my_draw(request, bg, text, font, textColor, shadowColor, border, shadow, hig
             img_draw.text(textPosition,text,font=font, fill=textColor)
             image_a.save(filename)
 
-    
+
     image_path_on_server="""./media/result/%s""" % pure
     return image_path_on_server
 
