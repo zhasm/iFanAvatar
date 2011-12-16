@@ -9,9 +9,8 @@ function collect_param()
     }
 
     var bh_info = $('#theme-hl').is(':checked') ? 'h' : '';
-    bh_info = bh_info + $('#theme-border').is(':checked') ? 'b' : '';
+    bh_info = bh_info + ($('#theme-border').is(':checked') ? 'b' : '');
     bh_info = bh_info ? ('_' + bh_info) : '';
-    
 
     var bg = theme + bh_info + '.png';
 
@@ -55,6 +54,44 @@ function collect_param()
             hat_related: hat_related};
 }
 
+function head_preview (event)
+{
+    if (! $("#char").val())
+    {
+        show_step(1);
+        return;
+    }
+
+    var params = collect_param();
+
+    //gen url
+    var gen_url = function(added_params)
+    {
+        var result = '';
+
+        for (added in added_params)
+        {
+            result = result + '&' + added + '=' + added_params[added];
+        }
+        return result;
+    }
+
+
+    var new_url = '/gen2?bg=' + params.bg;
+    new_url = new_url + gen_url(params.font_related);
+    if ( $('input:radio[name=theme]:checked').val() == 'deer')
+    {
+        new_url = new_url + gen_url(params.hat_related.left);
+        new_url = new_url + gen_url(params.hat_related.right);
+    }
+
+    new_url = new_url.replace(/#/gi, '%23');
+
+    //update the demo head src
+    $('.demo-head').attr('src', new_url);
+    $('#save-to-disk').attr('href', new_url + '&save=1');
+};
+
 function show_step(step)
 {
     //show the horn for deer style
@@ -64,10 +101,27 @@ function show_step(step)
         if (theme === 'deer')
         {
             $("#horn-img-container").show();
+            $('.color-options').hide();
+            $('.master-list-down').hide();
         }
         else
         {
             $("#horn-img-container").hide();
+            if (theme === 'cx50')
+            {
+                $("#horn-img-container").hide();
+                $('.colors label').show();
+                $('.color-options').show();
+                $('.master-list-down').show();
+            }
+            else
+            {
+                $("#horn-img-container").hide();
+                $('.colors label').hide();
+                $('.color-options').show();
+                $('.master-list-down').show();
+ 
+            }
         }
     }
     
@@ -82,6 +136,7 @@ function show_step(step)
     if (step === 4)
     {
         $("#turn-right").hide();
+        head_preview();
     }
 
     //hinter handler
@@ -95,7 +150,6 @@ function show_step(step)
     }).animate({
         left:  $("#hinter" + step.toString()).position().left
     });
-
 }
 
 $(document).ready(function() {
@@ -233,35 +287,8 @@ $(document).ready(function() {
             $("#turn-right").addClass("gn-right-disable");
         }
     });
-
-    $(".preview-button").click(function (event) {
-        if (! $("#char").val())
-        {
-            show_step(1);
-            return;
-        }
-
-        var params = collect_param();
-
-        //gen url
-        var gen_url = function(added_params)
-        {
-            var result = '';
-
-            for (added in added_params)
-            {
-                result = result + '&' + added + '=' + added_params[added];
-            }
-            return result;
-        }
-
-
-        var new_url = '/gen2?bg=' + params.bg;
-        new_url = new_url + gen_url(params.font_related);
-        if ( $('input:radio[name=theme]:checked').val() == 'deer')
-        {
-            new_url = new_url + gen_url(params.hat_related.left);
-            new_url = new_url + gen_url(params.hat_related.right);
-        }
+    $(".preview-button").click(head_preview);
+    $('.finish-button').click(function (event) {
+        window.location.href = "/upload";
     });
 });

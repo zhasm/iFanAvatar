@@ -27,7 +27,7 @@ def gen2(request):
     text=request.GET.get('text', u'饭')
     font=request.GET.get('font', 'iYaHei.ttf')
     textColor=request.GET.get('textColor', '#FFFFFF')
-    shadowColor=request.GET.get('shadowColor', '#00000')
+    shadowColor=request.GET.get('shadowColor', '#000000')
 
     #boolean args
     shadow    = _safeGetBoolean(request, "shadow")

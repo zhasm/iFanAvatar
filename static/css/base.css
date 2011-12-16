@@ -531,6 +531,7 @@ body > div.flake
 #color-shadow
 {
     margin-left: -0px;
+    float: left;
 }
 
 .color-options
@@ -586,7 +587,7 @@ body > div.flake
 .colors
 {
     height: 17px;
-    margin-left: -10px;
+    margin-left: 0px;
 }
 
 .colors input
