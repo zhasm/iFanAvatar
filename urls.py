@@ -4,7 +4,7 @@ from views import home, generate, generate_random, hat
 import os.path
 from downloader import downloader
 from app.views import route
-
+from drawpic.views import gen2
 import views
 
 # Uncomment the next two lines to enable the admin:
@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     (r'^/?$', home),
     (r'^home2/?$', views.home2),
     (r'^gen\b', generate),
+    (r"^gen2\b", gen2),
     (r'^random$', generate_random),
     (r'^result$', downloader),
     (r'^hat$', hat),

@@ -4,6 +4,7 @@ import os
 
 REMAIN_PICS = 100
 DEBUG = True
+APP_ROOT="/Users/zhasm/git/iFanAvatar"
 
 TEMPLATE_DEBUG = DEBUG
 
@@ -100,6 +101,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'fanfouapi',
     'app',
+    'drawpic',
 )
 
 #rex added
