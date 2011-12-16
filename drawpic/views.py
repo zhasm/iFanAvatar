@@ -52,6 +52,7 @@ def gen2(request):
     #hat processing, a loop procedure, for several hats(horns)
     image_path_on_server=hat(request, bg=image_path_on_server)
     saveImage4Upload(request, image_path_on_server)
+    image_path_on_server=findPath(image_path_on_server)
     image_data = open(image_path_on_server, "rb").read()
 
     #if save==1, download:
