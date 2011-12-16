@@ -51,7 +51,7 @@ def gen2(request):
 
     #hat processing, a loop procedure, for several hats(horns)
     image_path_on_server=hat(request, bg=image_path_on_server)
-
+    saveImage4Upload(request, image_path_on_server)
     image_data = open(image_path_on_server, "rb").read()
 
     #if save==1, download:
@@ -107,13 +107,13 @@ def my_draw(request, bg, text, font, textColor, shadowColor, border, shadow, hig
             img_draw.text(textPosition,text,font=font, fill=textColor)
             image_a.save(filename)
 
-    url="""./site_media/result/%s""" % pure
+    
     image_path_on_server="""./media/result/%s""" % pure
-    html="""<a href="/result?url=%s"><img src="%s"></a>""" % (url, url)
-    request.session['avatar_to_upload'] = url
-#    return HttpResponse(html)
     return image_path_on_server
 
+def saveImage4Upload(request, image_url):
+    image_url = image_url.replace("/media/", "/site_media/")
+    request.session['avatar_to_upload'] = image_url
 
 def generate_random(request):
     bgPath = os.getcwd() + "/media/colors/"
