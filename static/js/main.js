@@ -79,6 +79,7 @@ function head_preview (event)
 
     var new_url = '/gen2?bg=' + params.bg;
     new_url = new_url + gen_url(params.font_related);
+    var rst_url = new_url;
     if ( $('input:radio[name=theme]:checked').val() == 'deer')
     {
         new_url = new_url + gen_url(params.hat_related.left);
@@ -86,9 +87,11 @@ function head_preview (event)
     }
 
     new_url = new_url.replace(/#/gi, '%23');
+    rst_url = rst_url.replace(/#/gi, '%23');
 
     //update the demo head src
-    $('.demo-head').attr('src', new_url);
+    $('#demo-head').attr('src', rst_url);
+    $('#final-demo-head').attr('src', new_url);
     $('#save-to-disk').attr('href', new_url + '&save=1');
 };
 
@@ -134,11 +137,7 @@ function show_step(step)
     if (step === 4)
     {
         $("#turn-right").hide();
-        if ($('#save-to-disk').attr('href') === '#')
-        {
-            head_preview();
-        }
-
+        head_preview();
     }
 
     $(".steps").hide();
