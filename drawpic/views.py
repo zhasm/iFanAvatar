@@ -24,7 +24,11 @@ def gen2(request):
 
     bg = request.GET.get('bg', 'c206_hb.png')  #can be changed to POST
 
-    text=request.GET.get('text', u'饭')
+    text=request.GET.get('text', '%u996d')
+    try:
+        text = unichr(int(text[2:], 16))
+    except Exception, e:
+        print 'error', e
     font=request.GET.get('font', 'iYaHei.ttf')
     textColor=request.GET.get('textColor', '#FFFFFF')
     shadowColor=request.GET.get('shadowColor', '#000000')
