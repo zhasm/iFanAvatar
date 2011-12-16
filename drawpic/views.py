@@ -27,7 +27,8 @@ def gen2(request):
     text=request.GET.get('text', u'饭')
     font=request.GET.get('font', 'iYaHei.ttf')
     textColor=request.GET.get('textColor', '#FFFFFF')
-    shadowColor=request.GET.get('shadowColor', '#00000')
+    print "textColor:", textColor
+    shadowColor=request.GET.get('shadowColor', '#000000')
 
     #boolean args
     shadow    = _safeGetBoolean(request, "shadow")
@@ -45,12 +46,17 @@ def gen2(request):
             shadow=shadow,
             highlight=highlight)
 
-    print "FIRST IMG:", image_path_on_server
-
     #hat processing, a loop procedure, for several hats(horns)
     image_path_on_server=hat(request, bg=image_path_on_server)
         
     image_data = open(image_path_on_server, "rb").read()
+
+    #if save==1, download:
+    save = _safeGetBoolean(request, "save")
+    if save:
+        response = HttpResponse(image_data, mimetype="image/png")
+        response['Content-Disposition'] = 'attachment; filename=%s' % image_path_on_server[-36:] 
+        return response
     
     return HttpResponse(image_data, mimetype="image/png")
 
