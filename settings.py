@@ -1,10 +1,11 @@
 # Django settings for iFanAvatar project.
 
 import os
+from misc import getPath
 
 REMAIN_PICS = 100
 DEBUG = True
-APP_ROOT="/Users/zhasm/git/iFanAvatar"
+APP_ROOT=getPath()
 
 TEMPLATE_DEBUG = DEBUG
 
