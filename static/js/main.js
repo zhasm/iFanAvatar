@@ -15,7 +15,7 @@ function collect_param()
     var bg = theme + bh_info + '.png';
 
     var font_related = {font: $(".black-border").attr("rel"),
-                        text: $("#char").val(),
+                        text: escape($("#char").val()),
                         textColor: $('#color-text').val(),
                         shadowColor: $('#color-shadow').val(),
                         shadow:  $('input:radio[name=theme-shadow]:checked').val()
@@ -125,8 +125,6 @@ function show_step(step)
         }
     }
     
-    $(".steps").hide();
-    $("#step" + step.toString()).show();
     //show nav handler
     $(".nav-handler").show();
     if (step === 1)
@@ -136,8 +134,15 @@ function show_step(step)
     if (step === 4)
     {
         $("#turn-right").hide();
-        head_preview();
+        if ($('#save-to-disk').attr('href') === '#')
+        {
+            head_preview();
+        }
+
     }
+
+    $(".steps").hide();
+    $("#step" + step.toString()).show();
 
     //hinter handler
     $(".hinter").removeClass('current_hinter');
@@ -174,7 +179,7 @@ $(document).ready(function() {
 
     $(".font-preview").click(function(event) {
         $(".font-preview").removeClass('black-border');
-        $(".font-Preview").addClass('white-border');
+        $(".font-preview").addClass('white-border');
         $(event.target).removeClass('white-border');
         $(event.target).addClass('black-border');
         
