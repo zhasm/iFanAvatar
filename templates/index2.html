@@ -42,22 +42,22 @@
                             <form method="get" id="form1" action="/">
                                 <div class="theme">
                                     <div class="theme_preview tp_deer"></div>
-                                    <input type="radio" name="theme" id="theme-deer" value="deer" checked="checked">
-                                    <label for="theme-deer">圣诞鹿角</label>
+                                    <input type="radio" name="theme" id="theme-deer" value="deer" checked="checked" rel="deer">
+                                    <label for="theme-deer" rel="deer">圣诞鹿角</label>
                                 </div>
                                 <div class="theme">
                                     <div class="theme_preview tp_aifan"></div>
-                                    <input type="radio" name="theme" id="theme-aifan" value="aifan" >
+                                    <input type="radio" name="theme" id="theme-aifan" value="c192" rel="c192">
                                     <label for="theme-aifan">爱饭样式</label>
                                 </div>
                                 <div class="theme">
                                     <div class="theme_preview tp_fanfou"></div>
-                                    <input type="radio" name="theme" id="theme-fanfou" value="fanfou" >
+                                    <input type="radio" name="theme" id="theme-fanfou" value="c206" rel="c206">
                                     <label for="theme-fanfou">饭否样式</label>
                                 </div>
                                 <div class="theme">
                                     <div class="theme_preview tp_custom"></div>
-                                    <input type="radio" name="theme" id="theme-custom" value="custom" >
+                                    <input type="radio" name="theme" id="theme-custom" value="cx50" rel="cx50">
                                     <label for="theme-custom">自定义</label>
                                 </div>
                             </form>
@@ -75,34 +75,34 @@
                                 <div class="span-9 last">
                                   <ul class="font-list">
                                     <li>
-                                    <div class="font-preview fp-1 white-border"></div>
+                                    <div class="font-preview fp-1 white-border" rel="fzybksjt.ttf"></div>
                                     </li>
                                     <li>
-                                    <div class="font-preview fp-2 white-border"></div>
+                                    <div class="font-preview fp-2 white-border" rel="jingdianfansuiyi.ttf"></div>
                                     </li>
                                     <li>
-                                    <div class="font-preview fp-3 white-border"></div>
+                                    <div class="font-preview fp-3 white-border" rel="xujinglei.ttf"></div>
                                     </li>
                                     <li>
-                                    <div class="font-preview fp-4 white-border"></div>
+                                    <div class="font-preview fp-4 white-border" rel="iYaHei.ttf"></div>
                                     </li>
                                     <li>
-                                    <div class="font-preview fp-5 white-border"></div>
+                                    <div class="font-preview fp-5 white-border" rel="msjhbd.ttf"></div>
                                     </li>
                                     <li>
-                                    <div class="font-preview fp-6 white-border"></div>
+                                    <div class="font-preview fp-6 white-border" rel="fzqtj.ttf"></div>
                                     </li>
                                     <li>
-                                    <div class="font-preview fp-7 white-border"></div>
+                                    <div class="font-preview fp-7 white-border" rel="shoujin.ttf"></div>
                                     </li>
                                     <li>
-                                    <div class="font-preview fp-8 white-border"></div>
+                                    <div class="font-preview fp-8 white-border" rel="huakanghaibao.ttf"></div>
                                     </li>
                                     <li>
-                                    <div class="font-preview fp-9 white-border"></div>
+                                    <div class="font-preview fp-9 white-border" rel="liuti.ttf"></div>
                                     </li>
                                     <li>
-                                    <div class="font-preview fp-10 black-border"></div>
+                                    <div class="font-preview fp-10 black-border" rel="wqy-microhei.ttc"></div>
                                     </li>
                                   </ul>
                                 </div>
@@ -115,7 +115,7 @@
                                   <div class="colors span-10 last">
                                     <input type="text" id="color-shadow" class="color_input" value="#FFFFFF"/>
                                     <label><span class="label-desc">文字颜色：</span><input type="text" id="color-text" class="color_input" value="#FFFFFF"/></label>
-                                    <label><span class="label-desc">背景颜色：</span><input type="text" id="color-bg" class="color_input" value="#313231"/></label>
+                                    <label><span class="label-desc">背景颜色：</span><input type="text" id="color-bg" class="color_input" value="#313231" rel="bg"/></label>
                                   </div>
                                 </div>
 
@@ -142,26 +142,26 @@
                                         </li>
                                       </ul>
                                     </div> 
-                                    <div class="">
+                                    <div class="master-list-down">
                                       <ul class="master-list">
                                         <li class="">
                                         <div class="master_fp fp-shadow-no"></div>
                                         <div class="master-fp-desc">
-                                          <input type="radio" name="theme-shadow" id="theme-shadow-no" value="hl" checked="checked" >
+                                          <input type="radio" name="theme-shadow" id="theme-shadow-no" value="0" checked="checked" >
                                           <label for="theme-shadow-no">无阴影</label>
                                         </div>
                                         </li>
                                         <li class="">
                                         <div class="master_fp fp-shadow-border"></div>
                                         <div class="master-fp-desc">
-                                          <input type="radio" name="theme-shadow" id="theme-shadow-border" value="hl" >
+                                          <input type="radio" name="theme-shadow" id="theme-shadow-border" value="1" >
                                           <label for="theme-shadow-border">阴影描边</label>
                                         </div>
                                         </li>
                                         <li class="">
                                         <div class="master_fp fp-shadow-shift"></div>
                                         <div class="master-fp-desc">
-                                          <input type="radio" name="theme-shadow" id="theme-shadow-shift" value="hl" >
+                                          <input type="radio" name="theme-shadow" id="theme-shadow-shift" value="2" >
                                           <label for="theme-shadow-shift">阴影偏移</label>
                                         </div>
                                         </li>
@@ -172,7 +172,7 @@
                             </div>
                             <div id="demo-div" class="last span-5">
                                 <!-- deer horn -->
-                                <div id="horn-img-container">
+                                <div id="horn-img-container" class="hide">
                                     <div id="deer-horn-left" class="horn-img-div">
                                         <img id="horn-img-left" src="static/img/lefthorn.png" class="horn-img" alt="left-horn" />
                                     </div>
@@ -180,9 +180,9 @@
                                         <img id="horn-img-right" src="static/img/righthorn.png" class="horn-img" alt="right-horn" />
                                     </div>
                                 </div>
-                                <img src="static/img/demo.png" class="demo-head" alt="header-demo" />
+                                <img src="static/img/demo.png" class="demo-head" alt="header-demo" id="demo-head" />
                                 <div class="preview-div">
-                                  <div class="preview-button"></div>
+                                    <div class="preview-button"></div>
                                 </div>
                             </div>
 
@@ -193,7 +193,7 @@
                       <div class="globaltips tip4">完成啦</div> 
                         <img id="final-demo-head" src="static/img/demo.png" class="demo-head" alt="header-demo" />
                       <div class="step4-ie6-hacker">
-                        <div class="finish-button"></div>
+                          <div class="finish-button"></div>
                       </div>
                       <a href="#" id="save-to-disk">保存到电脑</a>
                     </div>

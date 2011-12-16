@@ -13,7 +13,7 @@ from hat import hat
 
 def gen2(request):
     """to draw pictures with all parameters set"""
-    
+
     #background
 
     def _safeGetBoolean(request, key, default=False):
@@ -21,20 +21,19 @@ def gen2(request):
             return eval(request.GET.get(key))
         except:
             return default
-    
+
     bg = request.GET.get('bg', 'c206_hb.png')  #can be changed to POST
 
     text=request.GET.get('text', u'饭')
     font=request.GET.get('font', 'iYaHei.ttf')
     textColor=request.GET.get('textColor', '#FFFFFF')
-    print "textColor:", textColor
     shadowColor=request.GET.get('shadowColor', '#000000')
 
     #boolean args
     shadow    = _safeGetBoolean(request, "shadow")
     border    = _safeGetBoolean(request, "border")
     highlight = _safeGetBoolean(request, "highlight")
-        
+
     #return HttpResponse("<pre>%r</pre>" % locals())
     image_path_on_server = my_draw(request,
             bg=bg,
@@ -48,30 +47,30 @@ def gen2(request):
 
     #hat processing, a loop procedure, for several hats(horns)
     image_path_on_server=hat(request, bg=image_path_on_server)
-        
+
     image_data = open(image_path_on_server, "rb").read()
 
     #if save==1, download:
     save = _safeGetBoolean(request, "save")
     if save:
         response = HttpResponse(image_data, mimetype="image/png")
-        response['Content-Disposition'] = 'attachment; filename=%s' % image_path_on_server[-36:] 
+        response['Content-Disposition'] = 'attachment; filename=%s' % image_path_on_server[-36:]
         return response
-    
+
     return HttpResponse(image_data, mimetype="image/png")
 
 def my_draw(request, bg, text, font, textColor, shadowColor, border, shadow, highlight):
     """draw avatar. Core part of the program."""
     from hashlib import md5
-   
+
     pure=md5(text+bg+font+textColor+shadowColor+str(border)+str(shadow)+str(highlight)).hexdigest()+".png"
 
     filename=findPath('media/result/')+pure
 
     pFont=fontFile(font)
-    
+
     (textPosition, fontSize)=fontPosition(pFont)
-    
+
     #generate new pic only when not existing
     if not os.path.exists(filename):
         # when debugging, set if to 1, so as to gen pic each time;
@@ -110,7 +109,7 @@ def my_draw(request, bg, text, font, textColor, shadowColor, border, shadow, hig
     request.session['avatar_to_upload'] = url
 #    return HttpResponse(html)
     return image_path_on_server
-    
+
 
 def generate_random(request):
     bgPath = os.getcwd() + "/media/colors/"
@@ -129,7 +128,5 @@ def generate_random(request):
     highlight = random.randint(0, 1)
 
     return my_draw(request, bg, text, font, textColor, shadowColor, border, shadow, highlight)
-
-
 
 
