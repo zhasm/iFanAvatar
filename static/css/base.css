@@ -45,6 +45,7 @@ body > div.flake
     height: 470px;
     background-color: transparent;
     border-radius: 5px;
+    behavior: url(static/js/PIE.htc);
     padding: 10px;
     box-shadow: #F8F8F8;
     margin: 30px auto;
@@ -61,12 +62,14 @@ body > div.flake
     width: 830px;
     margin: auto;
     border-radius: 5px;
+    behavior: url(static/js/PIE.htc);
     height: 100%;
 }
 
 #char
 {
     font-size: 142px;
+    font-family: "Microsoft Yahei";
     padding: 6px;
     height: 188px;
     width: 188px;
@@ -78,6 +81,7 @@ body > div.flake
     box-shadow: 0 0 4px #222 inset;
     border: 1px thin #222;
     background:  transparent url(../img/world.png) no-repeat -383px -472px;
+    line-height: 188px;
 }
 
 /*.steps_wrapper {*/
@@ -135,6 +139,17 @@ body > div.flake
     position: relative;
     width: 150px;
     height: 170px;
+    border-radius: 10px 10px 15px 15px;
+    behavior: url(static/js/PIE.htc);
+
+}
+
+.theme:hover {
+    background-color: #eee;
+}
+
+.theme:active {
+    background-color: #edd;
 }
 
 .theme_preview {
@@ -142,6 +157,7 @@ body > div.flake
     height: 100px;
     margin: 10px auto;
     background-image: url(../img/world.png);
+    cursor: pointer;
 }
 
 .tp_deer {
@@ -629,6 +645,12 @@ body > div.flake
 .horn-img-div
 {
     position: absolute;
+    border-radius: 5px;
+    behavior: url(static/js/PIE.htc);
+}
+
+.horn-img-div:hover {
+    background-color: rgba(230, 230, 230, 0.2);
 }
 
 .demo-head1
