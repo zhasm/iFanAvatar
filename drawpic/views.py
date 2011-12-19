@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.db.models.loading import get_app
 
 import os
+import glob
+
 import Image
 import ImageDraw
 import ImageFont
@@ -10,12 +12,35 @@ import ImageFilter
 
 from misc import findPath, fontFile, fontPosition
 from hat import hat
+from settings import REMAIN_PICS
+
+def delete_pic(remain=REMAIN_PICS):
+    '''delete old pics so as to reduce the disk usage'''
+
+    p=findPath("media/result/*.png")
+
+    files=glob.glob(p)
+    s={}
+    for f in files:
+        statinfo=os.stat(f)
+        s[f]=statinfo.st_mtime
+
+    c= s.items()
+    c.sort(key=lambda x:x[1])
+
+    if len(c)<=remain:
+        pass
+    else:
+        for (x,y) in c[0:len(c)-remain]:
+            os.unlink(x)
+            
 
 def gen(request):
     """to draw pictures with all parameters set"""
 
     #background
-
+    delete_pic()
+    
     def _safeGetBoolean(request, key, default=False):
         try:
             return eval(request.GET.get(key))
