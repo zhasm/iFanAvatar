@@ -22,8 +22,8 @@ function collect_param()
                        };
 
     var hat_related = {};
-    if (theme === 'deer')
-    {
+
+    if (theme === 'deer') {
         //get left hat info
         var base = $('#demo-head').offset();
         var left_holder = $('#deer-horn-left');
@@ -47,6 +47,10 @@ function collect_param()
                          hatHeight:  $('#horn-img-right').height()
                         };
         hat_related.right = right_horn;
+    } else if (theme === 'c192') { // fanfou style
+    } else if (theme === 'c206') {  // ifan style.
+        $("#color-shadow").val("#000000");
+        $("#theme-border, #theme-hl, #theme-shadow-border").prop('checked', true);
     }
 
     return {bg: bg,
