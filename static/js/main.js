@@ -295,4 +295,8 @@ $(document).ready(function() {
     $('.finish-button').click(function (event) {
         window.location.href = "/upload";
     });
+
+    $('.theme_preview').click(function (event) {
+        $(event.target).next().attr('checked', 'checked');
+    });
 });
