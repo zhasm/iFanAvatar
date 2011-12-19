@@ -123,9 +123,9 @@ function show_step(step)
                 $('.colors label').hide();
                 $('.color-options').show();
                 $('.master-list-down').show();
-
             }
         }
+        head_preview();
     }
 
     //show nav handler
